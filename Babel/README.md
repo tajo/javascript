@@ -1,5 +1,5 @@
-#JavaScript? Babel!
-JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o sobě poměrně **nepoužitelný**. Na vině je především způsob, jakým dochází k uvádění jeho nových verzí. Jak si s tím poradit?
+#JavaScript? Babel.
+JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o sobě poměrně **nepoužitelný**. Na vině je především způsob, jakým dochází k uvádění jeho nových verzí. Jak si s tím úspěšně a elegantně poradit?
 
 ##JavaScript vs ECMAScript
 

@@ -3,7 +3,7 @@
 Vítejte! Zde se budou postupně objevovat články zaměřené na vývoj moderních interaktivních webovek. Z velké části se budeme věnovat **JavaScriptu v prohlížečích**, ale nezapomeneme ani na serverové prostředí **node.js**. Ukážeme si nástroje a knihovny, které nám velmi usnadní návrh větších projektů. Články jsou publikované i na serveru [Zdroják.cz](http://www.zdrojak.cz). Zde také najdete všechny zdrojové kódy z příkladů.
 
 ##Články
-### **[Babel](Babel/README.md)**
+### **[JavaScript? Babel.](Babel/README.md)**
 > JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o sobě poměrně **nepoužitelný**. Na vině je především způsob, jakým dochází k uvádění jeho nových verzí. Jak si s tím poradit?
 
 ##Pro koho jsou články určeny?
