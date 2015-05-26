@@ -1,6 +1,6 @@
 #JavaScript pro webaře
 
-Vítejte! Zde se budou postupně objevovat články zaměřené na vývoj moderních interaktivních webovek. Z velké části se budeme věnovat **JavaScriptu v prohlížečích**, ale nezapomeneme ani na serverové prostředí **node.js**. Ukážeme si nástroje a knihovny, které nám velmi usnadní návrh větších projektů. Články jsou publikované i na serveru [Zdroják.cz](http://www.zdrojak.cz). Zde také najdete všechny zdrojové kódy z příkladů.
+Vítejte! Zde se **možná** budou postupně objevovat články zaměřené na vývoj moderních interaktivních webovek, kde hlavní slovo bude mít JavaScript, Node.js, React či Flux. A to celé v češtině! Sdílejte a hvězdičkujte! Díky!
 
 ##Články
 ### **[JavaScript? Babel.](Babel/README.md)**
