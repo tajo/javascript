@@ -94,13 +94,13 @@ export default class CodeBlock extends Component {
 
   renderSyntaxLink(syntax) {
     if (!this.props[syntax] || !this.props[syntax].trim().length) {
-      return;
+      return null;
     }
 
     if (syntax === 'es5' &&
         !this.props.es6.trim().length &&
         !this.props.es7.trim().length) {
-      return;
+      return null;
     }
 
     const active = this.state.syntax === syntax;

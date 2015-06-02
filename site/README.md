@@ -14,3 +14,10 @@ npm start
 ```
 
 After it builds the static site (might take about half a minute), open [http://localhost:8080](http://localhost:8080).
+
+For publishing you have to update constants in `/scripts/publishStaticSite.sh` and run:
+
+```
+npm run publish-site
+```
+
