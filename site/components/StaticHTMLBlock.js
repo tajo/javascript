@@ -7,12 +7,15 @@ export default class StaticHTMLBlock {
   };
 
   render() {
-    const { html } = this.props;
 
     // Here goes a really hack-ish way to convert
     // areas separated by Markdown <hr>s into code tabs.
 
-    const blocks = html.split('<hr/>');
+    if (!this.props.html) {
+      return null;
+    }
+
+    const blocks = this.props.html.split('<hr/>');
     const elements = [];
 
     let es5Content = null;

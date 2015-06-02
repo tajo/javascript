@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-PROJECT_DIRECTORY="react-dnd"
+PROJECT_DIRECTORY="javascript"
 SITE_DIRECTORY="$PROJECT_DIRECTORY-site"
 GITHUB_REPO="git@github.com:tajo/javascript.git"
 GH_PAGES_SITE="http://tajo.github.io/javascript/"

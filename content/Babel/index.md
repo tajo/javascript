@@ -43,7 +43,7 @@ Je toho spousta. Zmíním jenom pár těch nejzásadnějších věcí. Bylo by a
 ###Třídy
 Rozlučte se s `prototype`. Máme tu novou hezčí syntax, která podporuje prototypovou **dědičnost**, volání rodičovské metody, statické metody či **konstruktory**.
 
-```javascript
+```js
 class SkinnedMesh extends THREE.Mesh {
   constructor(geometry, materials) {
     super(geometry, materials);
@@ -66,7 +66,7 @@ class SkinnedMesh extends THREE.Mesh {
 ###Let a const
 Rozlučte se s `var`. Máme tu `let`. Oproti `var` omezuje působnost proměnné na nejbližší blok. Dále také přibylo klíčové slovo `const` pro konstanty.
 
-```javascript
+```js
 function f() {
   {
     let x;
@@ -87,7 +87,7 @@ Nová syntax sjednocující definici a nahrávání modulů. Nepostradatelná zb
 
 Ze souboru můžeme **exportovat funkce**, **objekty** i **proměnné** pomocí klíčového slova `export`.
 
-```javascript
+```js
 // lib/math.js
 export function sum(x, y) {
   return x + y;
@@ -97,7 +97,7 @@ export var pi = 3.141593;
 
 V jiném souboru si je pak můžeme **importovat** pomocí klíčových slov `import` a `from`. `*` naimportuje vše.
 
-```javascript
+```js
 // app.js
 import * as math from "lib/math";
 alert("2π = " + math.sum(math.pi, math.pi));
@@ -105,7 +105,7 @@ alert("2π = " + math.sum(math.pi, math.pi));
 
 Můžeme si ale i vybrat, **co přesně** chceme naimportovat pomocí `{}`.
 
-```javascript
+```js
 // otherApp.js
 import {sum, pi} from "lib/math";
 alert("2π = " + sum(pi, pi));
@@ -113,7 +113,7 @@ alert("2π = " + sum(pi, pi));
 
 Specialitou je pak klíčové slovo `default`.
 
-```javascript
+```js
 // lib/mathplusplus.js
 export * from "lib/math";
 export var e = 2.71828182846;
@@ -124,7 +124,7 @@ export default function(x) {
 
 V cílovém souboru si pak můžeme **default import** pojmenovat zcela dle své vůle (zde `exp`). Současně můžeme i nadále importovat ostatní funkce, objekty a proměnné.
 
-```javascript
+```js
 // app.js
 import exp, {pi, e} from "lib/mathplusplus";
 alert("2π = " + exp(pi, e));
