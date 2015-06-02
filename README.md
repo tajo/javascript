@@ -1,15 +1,15 @@
 #JavaScript pro webaře
 
-Vítejte! Zde se **možná** budou postupně objevovat články zaměřené na vývoj moderních interaktivních webovek, kde hlavní slovo bude mít JavaScript, Node.js, React či Flux. A to celé v češtině! Sdílejte a hvězdičkujte! Díky!
+Hledáte články o JavaScriptu? Najdete je nyní na vlastní stránce zde:
 
-##Články
-### **[JavaScript? Babel.](Babel/README.md)**
-> JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o sobě poměrně **nepoužitelný**. Na vině je především způsob, jakým dochází k uvádění jeho nových verzí. Jak si s tím poradit?
+**[http://www.dzejes.cz](http://www.dzejes.cz)**
 
-##Pro koho jsou články určeny?
-Pro čtenáře, kteří již běžně programují webové aplikace, ale převážně pomocí serverových frameworků typu **[Nette](http://nette.org)**. Mají však už i nějaké zkušenosti s JavaScriptem, kterým občas něco animují nebo posílají AJAXem. Dále také pro programátory, kteří používají JavaScriptové frameworky jako [Angular](http://angularjs.org), [Ember](http://emberjs.com) či [Meteor](https://www.meteor.com) anebo knihovnu [Google Closure](https://developers.google.com/closure/). Jsou však zvědaví, proč je poslední dobou tolik povyku kolem **Facebooku**, **[Reactu](http://reactjs.com)** a **[Fluxu](https://facebook.github.io/flux/)**. Zkrátka, pro všechny lidi s otevřenou hlavou, kteří nevěří na pomluvy a chtějí stavět i velké, robustní a výkonné aplikace běžící v prohlížeči.
+Články jsou i nadále opensourcované v tomto repozitáři v adresáři `content`. Pro lepší čitelnost se z nich ale nyní generují [samostatné HTML stránky](http://www.dzejes.cz). V adresáři `site` pak naleznete i nástroj, kterým se tyto stránky generují. Je mimochodem také napsaný v JavaScriptu a Reactu.
 
-##O mně
-Mám za sebou spoustu let a webů v **PHP (Nette)**. Před 2 roky jsem se pak trochu nečekaně stal front-end vývojářem a skočil po hlavě do světa **Google Closure** a **[CoffeeScriptu](http://coffeescript.org)**. Po prvotním zděšení jsem se naučil mít JavaScript ekosystém rád a opravdová láska pak přišla s objevem **Reactu**. Jinak také jsem, byl a budu studentem teoretické informatiky/informační bezpečnosti na několika školách ([ČVUT](http://fit.cvut.cz), [MSOE](http://msoe.edu), [Masdar Institute](http://masdar.ac.ae), [Georgia Tech](http://gatech.edu)), takže některé z vás budu možná občas nudit i teoretizováním a přehnanou optimalizací.
+**Pokud chcete započít diskuzi**, založte prosím [novou issue](https://github.com/tajo/javascript/issues).
 
-Vojtěch Mikšů, [Twitter](https://twitter.com/vmiksu) a [další odkazy](http://miksu.cz), 2015
+**Pokud chcete opravit nějakou chybu**, či nekterý z článků vylepšit, založte prosím [nový pull request](https://github.com/tajo/javascript/pulls).
+
+Cílem těchto článků je seznámit programátory se základy moderního vývoje webových stránek za pomocí JavaScriptu a namotivovat je tak ke hlubšímu samostudiu. Není cílem poskytnout úplnou a vyčerpávající dokumentaci a překlad ke všem popisovaným technologiím.
+
+Prosím [followujte](http://twitter.com/vmiksu), hvězdičkujte, forkujte, sdílejte a časem tu snad vznikne něco pěkného. :)

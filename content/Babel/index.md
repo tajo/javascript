@@ -1,5 +1,4 @@
 #JavaScript? Babel.
-[Přejít na seznam článků](https://github.com/tajo/javascript)
 
 JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o sobě poměrně **nepoužitelný**. Na vině je především způsob, jakým dochází k uvádění jeho nových verzí. Jak si s tím úspěšně a elegantně poradit?
 
@@ -32,7 +31,6 @@ Nových jazyků a kompilátorů existuje celá řada. Dají se rozdělit do 2 z�
 Babel nedávno vznikl přejmenováním z **6to5**, rychle se dostal na špičku popularity a získává stále větší momentum. **Proč je úspěšný?** Hlavním důvodem je jednoduše [nejširší podpora ES6 (77%) i ES7 (61%)](https://kangax.github.io/compat-table/es6/). Plně integruje **JSX a React** (taková ta podivnost, kdy píšete HTML tagy přímo do těla JavaScriptových funkcí). Skvěle si rozumí s editory a různými nástroji.
 
 <p align="center">
-  <img src="pics/babel.jpg" /><br />
   Babel - nová generace JavaScriptu
 </p>
 

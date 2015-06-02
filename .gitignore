@@ -1,3 +1,6 @@
-*.html
+node_modules
+modules
 .DS_Store
-
+.idea
+__site__
+__site_prerender__
