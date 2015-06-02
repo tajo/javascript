@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage';
 import Article from './pages/ArticlePage';
 import React, { Component } from 'react';
 
+const favicon = require('./favicon.png');
+
 const ArticleMap = {
   BABEL: require('../content/Babel/index.md')
 };
@@ -53,6 +55,7 @@ export default class IndexPage extends Component {
           <title>DžejEs - JavaScript pro web</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
           <link rel="stylesheet" type="text/css" href={this.props.files['main.css']} />
+          <link rel="icon" type="image/png" href={favicon} />
           <base target="_blank" />
         </head>
         <body>

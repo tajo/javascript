@@ -13,4 +13,4 @@ Mám za sebou spoustu let a webů v **PHP (Nette)**. Před 2 roky jsem se pak tr
 
 **Vojtěch Mikšů**, [Twitter](https://twitter.com/vmiksu) a [kontakt](http://miksu.cz), 2015
 
-<small>Díky patří [Janu Žaloudkovi](http://janzaloudek.cz/) za nápad na hezkou českou doménu a [Danu Abramovi](http://github.com/gaearon) za základ systému, který tyto stránky generuje.</small>
+<small>Díky patří [Honzovi Žaloudkovi](http://janzaloudek.cz/) za nápad na hezkou českou doménu a [Danu Abramovi](http://github.com/gaearon) za základ systému, který tyto stránky generuje.</small>
