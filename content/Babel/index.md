@@ -31,7 +31,8 @@ Nových jazyků a kompilátorů existuje celá řada. Dají se rozdělit do 2 z�
 Babel nedávno vznikl přejmenováním z **6to5**, rychle se dostal na špičku popularity a získává stále větší momentum. **Proč je úspěšný?** Hlavním důvodem je jednoduše [nejširší podpora ES6 (77%) i ES7 (61%)](https://kangax.github.io/compat-table/es6/). Plně integruje **JSX a React** (taková ta podivnost, kdy píšete HTML tagy přímo do těla JavaScriptových funkcí). Skvěle si rozumí s editory a různými nástroji.
 
 <p align="center">
-  Babel - nová generace JavaScriptu
+  <img src="pics/babel.jpg" /><br />
+  <sub>Babel - nová generace JavaScriptu</sub>
 </p>
 
 Používají ho už dnes firmy jako **Facebook, Yahoo, Netflix, Mozilla a Evernote**. Můžete ho nasadit na serverovém prostředí **node.js**. Je to ale stále onen čistý JavaScript, takže s ním můžete bez problémů zkompilovat i svoje stávající projekty a s ES6 začít postupně.
