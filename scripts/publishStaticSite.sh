@@ -5,6 +5,7 @@ PROJECT_DIRECTORY="javascript"
 SITE_DIRECTORY="$PROJECT_DIRECTORY-site"
 GITHUB_REPO="git@github.com:tajo/javascript.git"
 GH_PAGES_SITE="http://tajo.github.io/javascript/"
+CUSTOM_DOMAIN="http://www.dzejes.cz"
 
 # Move to parent dir
 cd ../
@@ -28,6 +29,7 @@ fi
 
 cd "$PROJECT_DIRECTORY"
 npm run build-site
+echo "$CUSTOM_DOMAIN" >> CNAME
 open __site__/index.html
 cd ../
 
