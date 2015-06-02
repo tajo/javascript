@@ -3,8 +3,8 @@ set -e
 
 PROJECT_DIRECTORY="react-dnd"
 SITE_DIRECTORY="$PROJECT_DIRECTORY-site"
-GITHUB_REPO="git@github.com:gaearon/react-dnd.git"
-GH_PAGES_SITE="http://gaearon.github.io/react-dnd/"
+GITHUB_REPO="git@github.com:tajo/javascript.git"
+GH_PAGES_SITE="http://tajo.github.io/javascript/"
 
 # Move to parent dir
 cd ../
