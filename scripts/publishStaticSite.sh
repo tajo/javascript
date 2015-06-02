@@ -29,7 +29,7 @@ fi
 
 cd "$PROJECT_DIRECTORY"
 npm run build-site
-echo "$CUSTOM_DOMAIN" >> CNAME
+echo "$CUSTOM_DOMAIN" >> __site__/CNAME
 open __site__/index.html
 cd ../
 
@@ -56,4 +56,4 @@ git add --all
 git commit -m "Update website"
 git push
 sleep 1
-open $GH_PAGES_SITE
+open $CUSTOM_DOMAIN
