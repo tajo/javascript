@@ -6,15 +6,10 @@ export default class NavBar {
     return (
       <div className="NavBar">
         <div className="NavBar-container">
-          <div className="NavBar-logo">
-            <a href="./" target="_self" className="NavBar-logoTitle">React <i>DnD</i></a>
-            <p className="NavBar-logoDescription">Drag and Drop for React</p>
-          </div>
-
           <div className="NavBar-item">
-            <a className="NavBar-link" href="#" target="_self">Docs</a>
-            <a className="NavBar-link" href="#" target="_self">Examples</a>
-            <a className="NavBar-link" href="#">GitHub</a>
+            <a className="NavBar-link" href="/" target="_self">Úvod</a>
+            <a className="NavBar-link" href="https://twitter.com/vmiksu">Twitter</a>
+            <a className="NavBar-link" href="https://github.com/tajo/javascript">GitHub</a>
           </div>
         </div>
       </div>

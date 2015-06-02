@@ -1,4 +1,4 @@
-**Vítejte!** Zde se budou postupně objevovat články zaměřené na vývoj moderních interaktivních webovek, kde hlavní slovo má **JavaScript**, **Node.js**, **React** a **Flux**. To celé v češtině! Sdílejte a hvězdičkujte! Novinky budu šířit i na [svém twitteru](http://twitter.com/vmiksu). Diskutovat pak můžeme na [githubu](http://github.com/tajo/javascript).
+**Vítejte!** Zde se budou postupně objevovat články zaměřené na vývoj moderních interaktivních webovek, kde hlavní slovo má **JavaScript**, **Node.js**, **React** a **Flux**. V českém jazyce! Sdílejte a hvězdičkujte! Novinky budu šířit i na [svém twitteru](http://twitter.com/vmiksu). Diskutovat pak můžeme na [githubu](http://github.com/tajo/javascript).
 
 ##Články
 ### **[JavaScript? Babel.](babel.html)**

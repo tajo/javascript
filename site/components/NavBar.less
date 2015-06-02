@@ -5,8 +5,8 @@
   top: 0;
   position: fixed;
   width: 100%;
-  padding:  0 @content-padding;
-  background-color: fade(#fff, 90%);
+  padding: 0em 3em 0em 3em;
+  background-image: linear-gradient(45deg, rgba(44,83,158, 1), rgba(44,83,158, 0.75));
 
   .NavBar-container {
     display: flex;
@@ -15,7 +15,7 @@
     margin: 0 auto;
     height: @navbar-height;
     padding: @content-padding/2 0;
-    border-bottom: 2px solid fade(@accent-color, 10%);
+    float: right;
   }
 
   .NavBar-logo {
@@ -34,7 +34,7 @@
   }
 
   .NavBar-link {
-    color: @accent-color;
+    color: #FFF;
   }
 
   .NavBar-link + .NavBar-link {
