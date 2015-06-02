@@ -20,12 +20,11 @@ export default class StaticHTMLBlock {
 
     let es5Content = null;
     let es6Content = null;
-    let es7Content = null;
 
     for (let i = 0; i < blocks.length; i++) {
       const content = blocks[i];
 
-      switch (i % 4) {
+      switch (i % 3) {
       case 0:
         elements.push(
           <div key={i}
@@ -38,14 +37,11 @@ export default class StaticHTMLBlock {
         break;
       case 2:
         es6Content = content;
-        break;
-      case 3:
-        es7Content = content;
         elements.push(
           <CodeBlock key={i}
                      es5={es5Content}
                      es6={es6Content}
-                     es7={es7Content} />
+          />
         );
         break;
       }

@@ -22,23 +22,20 @@ function setPreferredSyntax(syntax) {
 export default class CodeBlock extends Component {
   static propTypes = {
     es5: PropTypes.string,
-    es6: PropTypes.string,
-    es7: PropTypes.string
+    es6: PropTypes.string
   };
 
   static defaultProps = {
     es5: '',
-    es6: '',
-    es7: ''
+    es6: ''
   };
 
   constructor(props) {
     super(props);
     this.state = {
       chosen: false,
-      syntax: this.props.es5.trim().length && 'es5' ||
-              this.props.es6.trim().length && 'es6' ||
-              this.props.es7.trim().length && 'es7'
+      syntax: this.props.es5.trim().length && 'es6' ||
+              this.props.es6.trim().length && 'es5'
     };
   }
 
@@ -83,7 +80,7 @@ export default class CodeBlock extends Component {
     return (
       <div className="CodeBlock">
         <ul className="CodeBlock-tabs">
-          {['es5', 'es6', 'es7'].map(this.renderSyntaxLink, this)}
+          {['es5', 'es6'].map(this.renderSyntaxLink, this)}
         </ul>
         <div className="CodeBlock-content">
           <StaticHTMLBlock html={this.props[this.state.syntax]} />
@@ -98,17 +95,20 @@ export default class CodeBlock extends Component {
     }
 
     if (syntax === 'es5' &&
-        !this.props.es6.trim().length &&
-        !this.props.es7.trim().length) {
+        !this.props.es6.trim().length) {
       return null;
     }
 
     const active = this.state.syntax === syntax;
+    let label = 'ES5';
+    if (syntax === 'es6') {
+      label = 'Babel';
+    }
     return (
       <li className={`CodeBlock-tab ${active ? 'CodeBlock-activeTab' : ''}`}
           key={syntax}>
         <a onClick={this.handleSyntaxClick.bind(this, syntax)}>
-          {syntax.toUpperCase()}
+          {label}
         </a>
       </li>
     );
