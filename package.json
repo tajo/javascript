@@ -1,0 +1,57 @@
+{
+  "name": "dzejes",
+  "version": "1.0.0",
+  "description": "Series of Czech articles about JavaScript.",
+  "scripts": {
+    "start": "./scripts/startSiteDevServer.sh",
+    "build-site": "./scripts/buildStaticSite.sh",
+    "publish-site": "./scripts/publishStaticSite.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tajo/javascript"
+  },
+  "author": "Vojtech Miksu <vojtech@miksu.cz> (http://github.com/tajo)",
+  "license": "CC-BY-NC-ND-3.0",
+  "bugs": {
+    "url": "https://github.com/tajo/javascript/issues"
+  },
+  "homepage": "https://www.dzejes.cz",
+  "devDependencies": {
+    "animation-frame": "^0.2.4",
+    "autoprefixer": "^5.0.0",
+    "babel": "^5.1.10",
+    "babel-core": "^5.2.17",
+    "babel-eslint": "^3.1.1",
+    "babel-loader": "^5.0.0",
+    "css-loader": "^0.9.1",
+    "eslint": "^0.20.0",
+    "expect": "^1.6.0",
+    "extract-text-webpack-plugin": "^0.3.8",
+    "faker": "^2.1.3",
+    "file-loader": "^0.8.1",
+    "glob": "^4.3.5",
+    "html-loader": "^0.2.3",
+    "lodash": "^3.1.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-cli": "0.0.4",
+    "karma-mocha": "^0.1.10",
+    "karma-sourcemap-loader": "^0.3.4",
+    "karma-webpack": "^1.5.1",
+    "less": "^2.2.0",
+    "less-loader": "^2.0.0",
+    "marked": "^0.3.2",
+    "mocha": "^2.2.5",
+    "null-loader": "^0.1.0",
+    "postcss": "^4.0.2",
+    "react": "^0.13.3",
+    "react-hot-loader": "^1.2.3",
+    "react-router": "~0.13.2",
+    "request": "2.46.0",
+    "style-loader": "^0.8.3",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.8.11",
+    "webpack-dev-server": "^1.8.2"
+  }
+}
