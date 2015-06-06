@@ -8,10 +8,14 @@ export const Pages = {
 export const Articles = {
   BABEL: {
     location: 'babel.html',
-    title: 'Javascript? Babel.'
+    title: 'Javascript? Babel.',
+    prev: null,
+    next: 'NASTROJE'
   },
   NASTROJE: {
     location: 'nastroje.html',
-    title: 'Nástroje'
+    title: 'Nástroje',
+    prev: 'BABEL',
+    next: null
   }
 };

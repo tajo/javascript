@@ -78,9 +78,8 @@ export default class IndexPage extends Component {
     const pageKeys = Object.keys(Articles);
     for (let i = 0; i < pageKeys.length; i++) {
       const key = pageKeys[i];
-      const page = Articles[key];
-      if (this.props.location === page.location) {
-        return <Article example={page}
+      if (this.props.location === Articles[key].location) {
+        return <Article page={key}
                         html={ArticleMap[key]} />;
       }
     }
