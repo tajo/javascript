@@ -7,7 +7,8 @@ import React, { Component } from 'react';
 const favicon = require('./favicon.png');
 
 const ArticleMap = {
-  BABEL: require('../content/Babel/index.md')
+  BABEL: require('../content/Babel/index.md'),
+  NASTROJE: require('../content/Nastroje/index.md')
 };
 
 export default class IndexPage extends Component {

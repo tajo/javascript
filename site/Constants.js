@@ -10,8 +10,8 @@ export const Articles = {
     location: 'babel.html',
     title: 'Javascript? Babel.'
   },
-  WEBPACK: {
-    location: 'webpack.html',
-    title: 'Webpack'
+  NASTROJE: {
+    location: 'nastroje.html',
+    title: 'Nástroje'
   }
 };
