@@ -1,6 +1,6 @@
 #Nástroje
 
-Tak jako truhlář potřebuje hoblík, pilu nebo nebozez, tak i vývojář webovek se neobejde bez pořádných nástrojů. Když si vyberete ty správné a naučíte se s nimi pořádně zacházet, značně usnadní a zrychlí vaši práci. **V tomto článku se s nimi v rychlosti seznámíme.**
+Tak jako truhlář potřebuje hoblík, pilu nebo nebozez, tak i **vývojář webovek se neobejde bez pořádných nástrojů**. Když si vyberete ty správné a naučíte se s nimi pořádně zacházet, značně usnadní a zrychlí vaši práci. V tomto článku se s nimi v rychlosti seznámíme.
 
 ##Operační systém
 
