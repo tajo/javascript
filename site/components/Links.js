@@ -21,7 +21,7 @@ export default class Links {
             <a href={Articles[Articles[this.props.page].next].location} target="_self">
               {Articles[Articles[this.props.page].next].title}
             </a>
-            ▶{' '}
+            {' '}▶
           </div>
         }
       </div>
