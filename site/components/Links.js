@@ -9,8 +9,9 @@ export default class Links {
       <div className="links">
         {Articles[this.props.page].prev &&
           <div style={{float: 'left'}}>
+            ◀{' '}
             <a href={Articles[Articles[this.props.page].prev].location} target="_self">
-              ◀ {Articles[Articles[this.props.page].prev].title}
+              {Articles[Articles[this.props.page].prev].title}
             </a>
           </div>
         }
@@ -18,8 +19,9 @@ export default class Links {
         {Articles[this.props.page].next &&
           <div style={{float: 'right'}}>
             <a href={Articles[Articles[this.props.page].next].location} target="_self">
-              {Articles[Articles[this.props.page].next].title} ▶
+              {Articles[Articles[this.props.page].next].title}
             </a>
+            ▶{' '}
           </div>
         }
       </div>
