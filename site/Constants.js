@@ -16,6 +16,12 @@ export const Articles = {
     location: 'nastroje.html',
     title: 'Nástroje',
     prev: 'BABEL',
+    next: 'STACK'
+  },
+  STACK: {
+    location: 'prvni-dev-stack.html',
+    title: 'První dev stack',
+    prev: 'NASTROJE',
     next: null
   }
 };

@@ -9,6 +9,10 @@ JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o 
 
 Tak jako truhlář potřebuje hoblík, pilu nebo nebozez, tak i **vývojář webovek se neobejde bez pořádných nástrojů**. Když si vyberete ty správné a naučíte se s nimi pořádně zacházet, značně usnadní a zrychlí vaši práci.
 
+### **[První dev stack](prvni-dev-stack.html)**
+
+Hlavním hrdinou dnešního článku se stane bundlovací nástroj webpack. S jeho pomocí postavíme první jednoduchou "Hello world" aplikaci v Reactu, která bude například používat Babel a LESS. **Ukážeme si sílu moderních JS nástrojů v praxi**.
+
 
 ##Pro koho jsou články určeny?
 Pro čtenáře, kteří již běžně programují webové aplikace, ale převážně pomocí serverových frameworků typu **[Nette](http://nette.org)**. Mají však už i nějaké zkušenosti s JavaScriptem, kterým občas něco animují nebo posílají AJAXem. Dále také pro programátory, kteří používají JavaScriptové frameworky jako [Angular](http://angularjs.org), [Ember](http://emberjs.com) či [Meteor](https://www.meteor.com) anebo knihovnu [Google Closure](https://developers.google.com/closure/). Jsou však zvědaví, proč je poslední dobou tolik povyku kolem **Facebooku**, **[Reactu](http://reactjs.com)** a **[Fluxu](https://facebook.github.io/flux/)**. Zkrátka, pro všechny lidi s otevřenou hlavou, kteří nevěří na pomluvy a chtějí stavět i velké, robustní a výkonné aplikace běžící v prohlížeči.
