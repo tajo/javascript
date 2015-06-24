@@ -5,7 +5,6 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 
 module.exports = function(webpackConfig) {
-  console.log('ahooj');
   return function(callback) {
     new WebpackDevServer(webpack(webpackConfig), {
       contentBase: 'http://localhost:8888',

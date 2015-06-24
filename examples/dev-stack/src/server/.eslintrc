@@ -4,8 +4,7 @@
   },
 
   "rules": {
-    "strict": [2, "never"], // Not sure about it.
-    "no-console": true
+    "strict": [2, "never"]
   }
 
 }
