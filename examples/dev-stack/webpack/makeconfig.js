@@ -23,7 +23,7 @@ module.exports = function(isDevelopment) {
       ],
     module: {
       loaders: [{
-        loader: 'url-loader?limit=100000',
+        loader: 'url-loader?limit=8192',
         test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/
       }, {
         loaders: isDevelopment ? [
@@ -47,7 +47,8 @@ module.exports = function(isDevelopment) {
       publicPath: 'http://localhost:8888/build/'
     } : {
       path: 'build/',
-      filename: 'app.js'
+      filename: 'app.js',
+      publicPath: 'build/'
     },
     plugins: (function() {
       var plugins = [

@@ -1,5 +1,7 @@
 import React from 'react';
 import './main.less';
+import imgHello from './hello.gif';
+import imgIcon from './icon.png';
 
 export default class Main extends React.Component {
 
@@ -7,6 +9,8 @@ export default class Main extends React.Component {
     return (
       <div className="hello">
         Hello world!
+        <img src={imgHello} />
+        <img src={imgIcon} />
       </div>
     );
   }
