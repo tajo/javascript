@@ -34,7 +34,7 @@ Celkem dlouhý a náročný seznam, že? Na druhou stranu jsme programátoři, n
   <img src="pics/wheels.png" class="pic" title="Nemáte čas na zlepšování?" />
 </p>
 
-Stack pro tento článěk jsem samozřejmě nezačal budovat na zelené louce, ale pomohl si již existujícími řešeními. Pro naše účely jsem stáhnul [github.com/steida/este](https://github.com/steida/este) a vyházel z něho vše, co nepotřebujeme. Smazal jsem asi 90% repozitáře a zbylo jen nastavení webpacku aneb základní esence dev stacku. **Stack z tohoto článku je však stále použitelný i pro reálné nasazení**. Není to jen nějaká nevyzkoušená hračka. Chybí v něm ale ukázky návrhové vzoru Flux, server-side rendering, lokalizace a vůbec všechny patterny a techniky. Pokud je chcete prostudovat už dnes, puste se do [originálu](https://github.com/steida/este). Nebo si počkejte na další články.
+Stack pro tento článěk jsem samozřejmě nezačal budovat na zelené louce, ale pomohl si již existujícími řešeními. Pro naše účely jsem stáhnul [github.com/steida/este](https://github.com/steida/este) a vyházel z něho vše, co nepotřebujeme. Smazal jsem asi 90% repozitáře a zbylo jen nastavení webpacku aneb základní esence dev stacku. **Stack z tohoto článku je však stále použitelný i pro reálné nasazení**. Není to jen nějaká nevyzkoušená hračka. Chybí v něm ale ukázky návrhového vzoru Flux, server-side rendering, lokalizace a vůbec všechny patterny a techniky. Pokud je chcete prostudovat už dnes, puste se do [originálu](https://github.com/steida/este). Nebo si počkejte na další články.
 
 ##Webpack
 
@@ -145,7 +145,7 @@ Po jeho uložení zavolejte:
 npm install
 ```
 
-Všechny potřebně závislosti se vám tímto nainstalují do `node_modules/`.
+Všechny potřebné závislosti se vám tímto nainstalují do `node_modules/`.
 
 
 ##Server
@@ -195,7 +195,7 @@ console.log(`Server started on port ${config.port}`);
 
 **Nám stačí pouze jedno pravidlo**. V metodě `app.get` říkáme, že na jakoukoliv adresu nám má server poslat daný řetězec, který reprezentuje naší prázdnou HTML stránku. Tedy krom adresáře `/build`, ve kterém budeme mít naše bundly či obrázky.
 
-Trošku jsem v úvodu lhal o té jediné React komponentě. Tady je totiž druhá s názvem `Html`. **`React.renderToStaticMarkup` vrátí DOM v podobě prostého řetězce**. Existuje ještě metoda `React.renderToString`, která vrací to samé, avšak každý element dostane ještě speciální atribut `data-reactid`. **To se hodí pro server-side rendering**. Po té co se takováto komponenta dostane a vykreslí v prohlížeči, React už má díky idčkům kompletní přehled o struktuře DOMu a může se na ní hned napojit. To však pro elementy jako `<head>` či `<body>` nepotřebujeme, jelikož na ty React už nikdy šahat nebude.
+Trošku jsem v úvodu lhal o té jediné React komponentě. Tady je totiž druhá s názvem `Html`. **`React.renderToStaticMarkup` vrátí DOM v podobě prostého řetězce**. Existuje ještě metoda `React.renderToString`, která vrací to samé, avšak každý element dostane ještě speciální atribut `data-reactid`. **To se hodí pro server-side rendering**. Po té co se takováto komponenta vykreslí v prohlížeči, React už bude mít díky idčkům kompletní přehled o struktuře DOMu a může se na ní ihned napojit. To však pro elementy jako `<head>` či `<body>` nepotřebujeme, jelikož na ty React už nikdy šahat nebude.
 
 Než přejdeme na rozbor naší první reactí komponenty, mrkněme na `config.js`:
 
@@ -299,7 +299,7 @@ export default class Main extends React.Component {
 Povšimněte si, že kromě povinného Reactu **importujeme i soubor s LESS** (stylopis pro naši komponentu s className hello) **a dokonce i obrázky**. Potřeba minimalizace a mazání nepoužívaných CSS je asi všem jasná. **Proč se ale zaobírat obrázky, když ty se nahrávají asynchronně a jen když jsou potřeba i bez nějakého webpacku?**
 
 - Obrázky menší než např. 8kB můžeme automaticky **enkódovat do base64** a vložit přímo do HTML. Tím ušetříme zbytečný HTTP request.
-- **Pojmenování**. Webpack obrázky přejmenuje na jejich hash a přesune do společného /build adresáře. Prohlížeč je tak může cacheovat "navždy", pokud se změní, tak se změní i jejich název.
+- **Pojmenování**. Webpack obrázky přejmenuje na jejich hash a přesune do společného `/build` adresáře. Prohlížeč je tak může cacheovat "navždy", pokud se změní, tak se změní i jejich název.
 - **Lepší struktura a opravdová modularita**. Obrázky totiž můžeme mít přímo u jednotlivých komponent, aniž bychom veřejně odhalovali strukturu naší aplikace. Stejně jako styly a vše ostatní.
 
 Pokud se vám nelíbí představa, že byste museli všechny obrázky uvádět přes import, nezoufejte. Webpack umí poznat a vytáhnout název importu i přímo ze `src=""`, když si to nastavíte pomocí [loader query](http://webpack.github.io/docs/loaders.html#query).
@@ -319,7 +319,7 @@ Pro úplnou přehlednost ještě uvedu obsah souboru `main.less`:
 
 ##Nastavení Gulpu
 
-**Už jsme hotoví s dnešní aplikací (serverem i front-endem)**. Zbývá však ještě kofigurace a uvedení k životu. Proč máme v projektu Gulp i Webpack zároveň? Je pravda, že Webpack do velké míry dokáže spousty činností Gulpu nahradit a s trochou skriptování v `package.json` bychom se Gulpu dokázali zbavit úplně. Nicméně bude se nám hodit pro samotné spouštění Webpacku a také ESLintu. ESLint má sice také vlastní loader pro webpack, ale v našem nastavení webpacku budeme potlačovat většinu (výstupů) errorů, aby se nám nerozbíjel (nepřerušoval) hot reloading. Bohužel s tím bychom přišli i o výstup ESLintu.
+**Už jsme hotoví s dnešní aplikací (serverem i front-endem)**. Zbývá však ještě konfigurace a uvedení k životu. Proč máme v projektu Gulp i Webpack zároveň? Je pravda, že Webpack do velké míry dokáže spousty činností Gulpu nahradit a s trochou skriptování v `package.json` bychom se Gulpu dokázali zbavit úplně. Nicméně bude se nám hodit pro samotné spouštění Webpacku a také ESLintu. ESLint má sice také vlastní loader pro webpack, ale v našem nastavení webpacku budeme potlačovat většinu (výstupů) errorů, aby se nám nerozbíjel (nepřerušoval) hot reloading. Bohužel s tím bychom přišli i o výstup ESLintu.
 
 Základem konfigurace Gulpu je `gulpfile.js`:
 
@@ -364,7 +364,7 @@ gulp.task('server',
 gulp.task('default', ['server']);
 ```
 
-Základem je specifikování jednotlivých tasků:
+Musíme specifikovat jednotlivé tasky:
 
 - **env:** nastaví prostředí na vývojový či produkční režim
 - **build-webpack-production:** spustí produkční webpack (build)
@@ -468,7 +468,7 @@ var config = {
 
 `Loaders` nebo `loader` specifikuje, který loader pro dané pravidlo použít. `Test` je regexp, který určí z názvu importu (typicky přípony), zda se má daný loader použít. Pomocí `exclude` je pak možné vyloučit některé importy, což se hodí pro `/node_modules`.
 
-**První loader nám zpracovává obrázky**. Pokud jsou menší než 8kB, tak je převede do base64. Vrátí pak URL adresu obrázku. **Druhý loader se aplikuje na všechny JavaScriptové soubory**. Prožene je babel transormací. Ve vývojovém režimu navíc ještě react-hot loaderem, který nám přidá accept metody k React komponentám.
+**První loader nám zpracovává obrázky**. Pokud jsou menší než 8kB, tak je převede do base64. Vrátí pak URL adresu obrázku. **Druhý loader se aplikuje na všechny JavaScriptové soubory**. Prožene je babel transformací. Ve vývojovém režimu navíc ještě react hot loaderem, který nám přidá accept metody k React komponentám.
 
 **Poslední loader pak zpracovává LESS importy**. `lessLoaders` je zkratkou pro:
 

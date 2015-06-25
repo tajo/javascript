@@ -1,3 +1,7 @@
+## Popis
+
+Podrobný popis krok za krokem nalezente v [samostatném článku](http://www.dzejes.cz/prvni-dev-stack.html).
+
 ## Před stažením
 
 Nainstalujte si [node.js](http://nodejs.org).
@@ -22,3 +26,7 @@ npm install
 ## Produkční verze
 
 - v terminálu napište `gulp -p`
+
+## ESLint
+
+- v terminálu napište `gulp eslint`
