@@ -38,14 +38,9 @@ module.exports = {
         loader: 'null-loader'
       },
       {
-        test: /\.png$/,
+        test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
-        query: { mimetype: 'image/png', name: 'images/[name]-[hash].[ext]' }
-      },
-      {
-        test: /\.jpg$/,
-        loader: 'file-loader',
-        query: { mimetype: 'image/jpg', name: 'images/[name]-[hash].[ext]' }
+        query: { name: 'images/[name]-[hash].[ext]' }
       }
     ]
   },

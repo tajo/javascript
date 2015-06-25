@@ -9,9 +9,10 @@ export default class Main extends React.Component {
     return (
       <div className="hello">
         Hello world!
-        <img src={imgHello} />
+        <img src={imgHello} width="300px"/>
         <img src={imgIcon} />
       </div>
     );
   }
 }
+

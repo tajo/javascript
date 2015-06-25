@@ -8,7 +8,6 @@ const app = express();
 
 app.use(compression());
 app.use('/build', express.static('build'));
-app.use('/assets', express.static('assets'));
 
 app.get('*', (req, res) => {
   res.send('<!DOCTYPE html>' + React.renderToStaticMarkup(
