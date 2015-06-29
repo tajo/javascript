@@ -30,6 +30,11 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.json$/,
+        exclude: /node_modules/,
+        loader: 'json-loader'
+      },
+      {
         test: /\.css$/,
         loader: 'null-loader'
       },

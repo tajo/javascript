@@ -39,6 +39,11 @@ module.exports = {
         loaders: isDev ? ['react-hot-loader', 'babel-loader'] : ['babel-loader']
       },
       {
+        test: /\.json$/,
+        exclude: /node_modules/,
+        loader: 'json-loader'
+      },
+      {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',

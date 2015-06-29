@@ -56,7 +56,7 @@ export default class IndexPage extends Component {
           <meta charSet="utf-8" />
           <title>DžejEs - JavaScript pro web</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-          <link rel="stylesheet" type="text/css" href={this.props.files['main.css']} />
+          <link rel="stylesheet" type="text/css" href={this.props.files['main.css'] + '?v=' + require('../package').version} />
           <link rel="icon" type="image/png" href={favicon} />
           <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
           <base target="_blank" />
