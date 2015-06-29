@@ -11,7 +11,8 @@ export default class Footer {
         <div className="Footer">
           Diskutujte prostřednictvím <a href="https://github.com/tajo/javascript/issues">issues</a>.<br />
           Vylepšete článek <a href="https://github.com/tajo/javascript/pulls">pull requestem</a>.<br />
-          Sledujte na <a href="https://twitter.com/vmiksu">twitteru</a>.<br />
+          Sledujte na <a href="https://twitter.com/vmiksu">twitteru</a>. {' '}
+          <a href="/feed.xml">RSS</a>.<br />
           <b>Sdílejte!</b>
         </div>
       </footer>

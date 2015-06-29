@@ -1,0 +1,53 @@
+<rss
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+  version="2.0">
+  <channel>
+    <title>DžejEs - JavaScript pro web</title>
+    <atom:link href="http://www.dzejes.cz/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://www.dzejes.cz</link>
+    <description>Články o moderních webových aplikacích.</description>
+    <language>cs-CZ</language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <image>
+      <title>DžejEs</title>
+      <url>http://www.dzejes.cz/logo.png</url>
+      <link>http://www.dzejes.cz</link>
+    </image>
+
+    <item>
+      <title>První dev stack</title>
+      <link>http://www.dzejes.cz/prvni-dev-stack.html</link>
+      <pubDate>Thu, 25 June 2015 12:00:00 +0000</pubDate>
+      <dc:creator>Vojtěch Mikšů</dc:creator>
+      <description>
+        Hlavním hrdinou dnešního článku se stane bundlovací nástroj webpack. Lecos jste se o něm mohli dozvědět už v minulém článku. S jeho pomocí postavíme první jednoduchou "Hello world" aplikaci v Reactu, která bude například používat Babel (JavaScript budoucnosti) a LESS (CSS preprocesor). Ukážeme si sílu moderních JS nástrojů v praxi.
+      </description>
+    </item>
+
+    <item>
+      <title>Nástroje</title>
+      <link>http://www.dzejes.cz/nastroje.html</link>
+      <pubDate>Sun, 7 June 2015 12:00:00 +0000</pubDate>
+      <dc:creator>Vojtěch Mikšů</dc:creator>
+      <description>
+        Tak jako truhlář potřebuje hoblík, pilu nebo nebozez, tak i vývojář webovek se neobejde bez pořádných nástrojů. Když si vyberete ty správné a naučíte se s nimi pořádně zacházet, značně usnadní a zrychlí vaši práci. V tomto článku se s nimi v rychlosti seznámíme.
+      </description>
+    </item>
+
+    <item>
+      <title>JavaScript? Babel.</title>
+      <link>http://www.dzejes.cz/babel.html</link>
+      <pubDate>Tue, 26 May 2015 12:00:00 +0000</pubDate>
+      <dc:creator>Vojtěch Mikšů</dc:creator>
+      <description>
+        JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o sobě poměrně nepoužitelný. Na vině je především způsob, jakým dochází k uvádění jeho nových verzí. Jak si s tím úspěšně a elegantně poradit?
+      </description>
+    </item>
+  </channel>
+</rss>

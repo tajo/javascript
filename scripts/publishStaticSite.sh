@@ -30,6 +30,8 @@ fi
 cd "$PROJECT_DIRECTORY"
 npm run build-site
 echo "$CUSTOM_DOMAIN" >> __site__/CNAME
+cp site/logo.png __site__/logo.png
+cp site/feed.xml __site__/feed.xml
 open __site__/index.html
 cd ../
 

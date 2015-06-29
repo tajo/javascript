@@ -58,6 +58,7 @@ export default class IndexPage extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
           <link rel="stylesheet" type="text/css" href={this.props.files['main.css']} />
           <link rel="icon" type="image/png" href={favicon} />
+          <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
           <base target="_blank" />
         </head>
         <body>

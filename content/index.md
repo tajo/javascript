@@ -1,4 +1,4 @@
-**Vítejte!** Zde se budou postupně objevovat články zaměřené na vývoj moderních interaktivních webovek, kde hlavní slovo má **JavaScript**, **Node.js**, **React** a **Flux**. V českém jazyce! Sdílejte a hvězdičkujte! Novinky budu šířit i na [svém twitteru](http://twitter.com/vmiksu). Diskutovat pak můžeme na [githubu](http://github.com/tajo/javascript).
+**Vítejte!** Zde se budou postupně objevovat články zaměřené na vývoj moderních interaktivních webovek, kde hlavní slovo má **JavaScript**, **Node.js**, **React** a **Flux**. V českém jazyce! Sdílejte a hvězdičkujte! Novinky budu šířit i na [svém twitteru](http://twitter.com/vmiksu). Diskutovat pak můžeme na [githubu](http://github.com/tajo/javascript). [RSS](http://www.dzejes.cz/feed.xml).
 
 ##Články
 ### **[JavaScript? Babel.](babel.html)**
@@ -20,6 +20,6 @@ Pro čtenáře, kteří již běžně programují webové aplikace, ale převá�
 ##Autor
 Mám za sebou spoustu let a webů v **PHP (Nette)**. Před 2 roky jsem se pak trochu nečekaně stal front-end vývojářem a skočil po hlavě do světa **Google Closure** a **[CoffeeScriptu](http://coffeescript.org)**. Po prvotním zděšení jsem se naučil mít JavaScript ekosystém rád a opravdová láska pak přišla s objevem **Reactu**. Jinak také jsem, byl a budu studentem teoretické informatiky/informační bezpečnosti na několika školách ([ČVUT](http://fit.cvut.cz), [MSOE](http://msoe.edu), [Masdar Institute](http://masdar.ac.ae), [Georgia Tech](http://gatech.edu)), takže některé z vás budu možná občas nudit i teoretizováním a přehnanou optimalizací.
 
-**Vojtěch Mikšů**, [Twitter](https://twitter.com/vmiksu) a [kontakt](http://miksu.cz), 2015
+**Vojtěch Mikšů**, [twitter](https://twitter.com/vmiksu) a [kontakt](http://miksu.cz), 2015
 
 <small>Díky patří [Honzovi Žaloudkovi](http://janzaloudek.cz/) za nápad na hezkou českou doménu a [Danu Abramovi](http://github.com/gaearon) za základ systému, který tyto stránky generuje.</small>
