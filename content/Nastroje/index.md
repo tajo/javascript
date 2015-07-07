@@ -164,31 +164,25 @@ Podrobnější porovnání Gulpu a Gruntu můžete najít i v [pěkném článk�
 
 Node.js zavedlo do světa JS snadný způsob jak kód modularizovat. Takový modulární systém potřebuje dvě primární věci: možnost exportovat a importovat. Výše jste si mohli již povšimnout importování:
 
----------------------------
 ```js
 var gulp = require('gulp');
 ```
----------------------------
+
+Obdobný zápis v ES6:
+
 ```js
 import gulp from 'gulp';
 ```
----------------------------
+
 
 Výše uvedené zkusí prohledat `/node_modules` ve vašem projektu - místo, kam se vám budou ukládat balíčky z npm. Stačí zavolat `npm install gulp --save` a máte ho tam. Přepínač `--save` ho navíc přidá do seznamu v `package.json`. Běžně se totiž `/node_modules` adresář v Gitu ignoruje a tak je někde potřeba uchovávat seznam všech závislostí.
 
 V `/node_modules/gulp` se pak import podívá do hlavního souboru daného balíčku a v něm najde export:
 
----------------------------
 ```js
 var inst = new Gulp();
 module.exports = inst;
 ```
----------------------------
-```js
-const inst = new Gulp();
-export default inst;
-```
----------------------------
 
 **To je vše pěkné, ale asi vás teď napadlo, jak to bude fungovat v prohlížeči? Nebude.** Do prohlížeče můžeme jednotlivé skripty nahrávat pomocí `<script> ... </script>`, ale to nám moc nepomůže. Podobných souborů totiž budeme mít v projektu stovky až tisíce a posílat tolik HTTP requestů rozhodně nemůžeme. **Také to nijak neřeší potřebu verzování, minimalizování a zapouzdřování**. Tyto závislosti je tedy potřeba vyřešit už před releasem a uživateli posílat jeden výsledný soubor, ve kterém bude jen to, co skutečně potřebuje.
 
