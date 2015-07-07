@@ -9,7 +9,7 @@
 
 ##Trocha historie
 
-**React spatřil světlo světa v květnu 2013**. Opensourcnul ho Facebook, který ho už několik let před tím sám interně používal a vylepšoval. Prvotní vydání se však dočkalo velkého výsměchu. Odezva byla dokonce tak špatná, že Facebook chvíli uvažoval i o jeho stáhnutí. Terčem kritiky se stalo především míchání "HTML a programování". I někteří [čeští prominentní webaři](https://twitter.com/geekovo/status/604710448131391490) mají proto k Reactu odpor :-).  Ovšem, brzo se ukázalo, že došlo k nepochopení základního konceptu a nejen FE vývojáři si začli rychle osvojovat a užívat nové fundamenty, které React přinesl.
+**React spatřil světlo světa v květnu 2013**. Opensourcnul ho Facebook, který ho už několik let před tím sám interně používal a vylepšoval. Prvotní vydání se však dočkalo velkého výsměchu. Odezva byla dokonce tak špatná, že Facebook chvíli uvažoval i o jeho stáhnutí. Terčem kritiky se stalo především míchání "HTML a programování". Podobné obavy nedávno vyjádřili i někteří [prominentní čeští webaři](https://twitter.com/geekovo/status/604710448131391490). Postupně se však ukázalo, že došlo k pouze nepochopení základního konceptu a nejen FE vývojáři si začli rychle osvojovat a užívat nové fundamenty, které React přinesl.
 
 **K dnešnímu dni** (červenec 2015) **má 4800 commitů, 25 000 stargazerů a 444 contributorů a je tak jedním z nejoblíbenějších a nejaktivnějších repozitářů na GitHubu**. Facebook během této doby uvolnil i další JS projekty jako [React Native](https://facebook.github.io/react-native/) (React pro iOS a blíží se i vydání Android verze), [Immutable.js](https://facebook.github.io/immutable-js/) (immutable kolekce) či [Flux](https://facebook.github.io/flux/) (M a C doplňující React v pomyslném MVC).
 
@@ -31,7 +31,7 @@ Klasické server-side webovky jsou vcelku jednoduché. **Server totiž nemusí u
 
 **DOM a JavaScript jsou dvě úplně rozdílné věci**. Teoreticky by mohl být DOM upravován i jiným jazykem, ale v praxi prohlížeče nabízejí pouze JavaScript. DOM je obrovský moloch, práce s ním je pomalá a prohlížeče nejsou vždy jednotné v jeho implementaci. **JavaScript pak často neprávem sklízí nenávistné komentáře, které by ale měly směřovat právě na DOM**. Dnešní JavaScript je naopak velmi rychlý a vcelku lišácky navržený, což ostatně potvrzuje i to, že se rozšiřuje i do oblastí, kde má narozdíl od prohlížečů silnou konkurenci (node.js).
 
-DOM navíc představuje jednu velkou globální proměnou, což přímo svádí k tomu, abychom ho používali jako místo pro ukládání stavu naší aplikace. Asi nemusím popisovat proč jsou globální proměnné zlo. U DOMu to pak ještě zhoršuje jeho pomalost. **Stav aplikace bychom tedy měli udržovat jinde - v našem JavaScriptu** a do DOMu šahat, jenom když je to skutečně potřeba. Pouze do něj zrcadlit změny z našeho JS kódu. Jenže jak to jednoduše udělat?
+DOM navíc představuje jednu velkou globální proměnnou, což přímo svádí k tomu, abychom ho používali jako místo pro ukládání stavu naší aplikace. Asi nemusím popisovat proč jsou globální proměnné zlo. U DOMu to pak ještě zhoršuje jeho pomalost. **Stav aplikace bychom tedy měli udržovat jinde - v našem JavaScriptu** a do DOMu šahat, jenom když je to skutečně potřeba. Pouze do něj zrcadlit změny z našeho JS kódu. Jenže jak to jednoduše udělat?
 
 ##Přínos Reactu
 
@@ -152,7 +152,7 @@ export default class Counter extends React.Component {
 
 ##Závěrem
 
-**Představili jsme si React, jeho krátkou historii a související projekty**. Jedním ze strašáků "programování v prohlížeči" je DOM, často chybně a neférově zaměňován s JavaScriptem. React nám mj. umožňuje kompletní abstrakci od DOMu. Strukturu jednotlivých komponent zapisujeme (deklarujeme) skládáním React funkcí, kterým následně dodáváme data a tím pro nás práce končí. React toho nabízí samozřejmě daleko více. Nakousli jsme třeba i systém eventů. **S Reactem je to tak trochu jako dobrým čajem nebo kafem**. Zpočátku vám bude připadat divný a musíte se k němu postupně "propít". Až poté se stane nepostradatelnou součástí vašeho programátorského dne.
+**Představili jsme si React, jeho krátkou historii a související projekty**. Jedním ze strašáků "programování v prohlížeči" je DOM, často chybně a neférově zaměňován s JavaScriptem. React nám mj. umožňuje téměř kompletní abstrakci od DOMu. Strukturu jednotlivých komponent zapisujeme (deklarujeme) skládáním React funkcí, kterým následně dodáváme data a tím pro nás práce končí. React toho nabízí samozřejmě daleko více. Nakousli jsme třeba i systém eventů. **S Reactem je to tak trochu jako dobrým čajem nebo kafem**. Zpočátku vám bude připadat divný a musíte se k němu postupně "propít". Až poté se stane nepostradatelnou součástí vašeho programátorského dne.
 
 **Příště si ukážeme, co jsou to `this.props` a jak se liší od `this.state`**. Také si více povíme o životním cyklu komponenty a jejích dalších metodách.
 
