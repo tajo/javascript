@@ -9,7 +9,8 @@ const favicon = require('./favicon.png');
 const ArticleMap = {
   BABEL: require('../content/Babel/index.md'),
   NASTROJE: require('../content/Nastroje/index.md'),
-  STACK: require('../content/Stack/index.md')
+  STACK: require('../content/Stack/index.md'),
+  REACT_UVOD: require('../content/React-uvod/index.md')
 };
 
 export default class IndexPage extends Component {

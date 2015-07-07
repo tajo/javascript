@@ -22,6 +22,12 @@ export const Articles = {
     location: 'prvni-dev-stack.html',
     title: 'První dev stack',
     prev: 'NASTROJE',
+    next: 'REACT_UVOD'
+  },
+  REACT_UVOD: {
+    location: 'react-uvod.html',
+    title: 'React - Úvod',
+    prev: 'STACK',
     next: null
   }
 };

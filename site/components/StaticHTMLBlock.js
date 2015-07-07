@@ -1,5 +1,6 @@
 import React from 'react';
 import CodeBlock from './CodeBlock';
+var Counter = require('../../examples/react-uvod/counter');
 
 export default class StaticHTMLBlock {
   static propTypes = {
@@ -15,7 +16,7 @@ export default class StaticHTMLBlock {
       return null;
     }
 
-    const blocks = this.props.html.split('<hr/>');
+    const blocks = this.props.html.split('$$$');
     const elements = [];
 
     let es5Content = null;
@@ -24,7 +25,7 @@ export default class StaticHTMLBlock {
     for (let i = 0; i < blocks.length; i++) {
       const content = blocks[i];
 
-      switch (i % 3) {
+      switch (i % 2) {
       case 0:
         elements.push(
           <div key={i}
@@ -33,20 +34,24 @@ export default class StaticHTMLBlock {
         );
         break;
       case 1:
-        es5Content = content;
-        break;
-      case 2:
-        es6Content = content;
+        //elements.push(React.createElement(require('../../examples/' + content)));
         elements.push(
-          <CodeBlock key={i}
-                     es5={es5Content}
-                     es6={es6Content}
-          />
+          <div className="codeBlock" style={{borderLeft: 'solid 5px rgba(44, 83, 158, 0.9)'}}>
+            {React.createElement(
+              require('../../examples/react/' + content + '.js'),
+              {key: content}
+            )}
+            <div style={{fontSize: '0.8em', float: 'right'}}>
+              <a href={'https://github.com/tajo/javascript/tree/master/examples/react/' + content + '.js'}>
+                zdrojový kód
+              </a>
+            </div>
+          </div>
         );
         break;
       }
     }
-
+    //elements.push(React.createElement(require('../../examples/react-uvod/counter')));
     return (
       <div style={{ width: '100%' }}>
         {elements}
