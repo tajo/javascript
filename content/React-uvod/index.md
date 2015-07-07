@@ -19,7 +19,7 @@ Horkou novinkou je pak [GraphQL](http://facebook.github.io/graphql/), což je do
 
 Všechny výše uvedené projekty jsou široce používané a je kolem nich mohutná komunita. Nevezou se však na popularitě Reactu, protože s ním nejsou nijak spojené. Jsou prostě tak dobré. **Facebook v posledních letech jednoznačně udává trendy v tvorbě webových aplikací**. Nevytváří velké ucelené frameworky, ale pouze malé pragmatické knihovny s minimalistickým API, což má v JS ekosystému úspěch. Přístup Facebooku k opensource by měl být vzorem i pro další firmy.
 
-**Druhým webovým hegemonem je Google**, který ale v poslední době působí trochu schyzofrenicky. Jakoby si každý jeho tým budoval vlastní framework/knihovnu a tak tu máme vedle sebe [Angular](https://angularjs.org/), [Closure Tools](https://developers.google.com/closure/) a [Polymer](https://www.polymer-project.org/1.0/). Alespoň už zařízl Dart a třeba tak více konsoliduje své síly, co se JS knihoven týče.
+**Druhým webovým hegemonem je Google**, který ale v poslední době působí trochu schizofrenicky. Jakoby si každý jeho tým budoval vlastní framework/knihovnu a tak tu máme vedle sebe [Angular](https://angularjs.org/), [Closure Tools](https://developers.google.com/closure/) a [Polymer](https://www.polymer-project.org/1.0/). Alespoň už zařízl Dart a třeba tak více konsoliduje své síly, co se JS knihoven týče.
 
 ##Server vs prohlížeč
 
