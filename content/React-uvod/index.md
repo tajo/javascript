@@ -1,6 +1,6 @@
 #React - Úvod
 
-**React je JavaScriptová knihovna pro vytváření webových komponent.** V pomyslném MVC představuje "V" neboli view vrstvu a dal by se tak přirovnat například Latte v Nette. React je však daleko více. Přináší totiž zásadní změnu paradigma. S Reactem už nepíšeme kód, který něco mění, ale kód, který popisuje, jak má vypadat výsledek, což je řádově snažší úloha. Dvojnásob to pak platí, pokud tím výsledkem je "těžká váha" v podobě DOMu.
+**React je JavaScriptová knihovna pro vytváření webových komponent.** V pomyslném MVC představuje "V" neboli view vrstvu a dal by se tak přirovnat například Latte v Nette. React je však daleko více. Přináší totiž zásadní změnu paradigmatu. S Reactem už nepíšeme kód, který něco mění, ale kód, který popisuje, jak má vypadat výsledek, což je řádově snažší úloha. Dvojnásob to pak platí, pokud tím výsledkem je "těžká váha" v podobě DOMu.
 
 <p class="pic-container" style="max-width:300px">
   <img src="pics/logo.png" class="pic" title="JS knihoven není nikdy dost" />
