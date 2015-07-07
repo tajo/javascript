@@ -25,7 +25,7 @@ Všechny výše uvedené projekty jsou široce používané a je kolem nich mohu
 
 Klasické server-side webovky jsou vcelku jednoduché. **Server totiž nemusí udržovat žádný stav**. Přijde mu požadavek od uživatele, poslepuje dohromady nějaké řetězce (část z nich načte třeba z databáze) a celé to pak pošle uživateli do prohlížeče, který to rozparsuje a sestaví DOM (Document Object Model - stromová reprezetace toho co vidíte v prohlížeči jako HTML stránku + metody, kterými se dá upravovat či procházet).
 
-**Interaktivní JS webovky, které běží v prohlížeči, jsou podstatně složitější**. Chceme totiž po nich daleko více než od server-side aplikací. Chceme nabídnout daleko vyšší uživatelský zážitek. Je trochu zbytečně s každou akcí překreslovat celou stránku, když můžeme změny bleskově provádět pomocí funkcí DOMu a uživateli tak dopřát pohodlí, které zná z desktopových aplikací.
+**Interaktivní JS webovky, které běží v prohlížeči, jsou podstatně složitější**. Chceme totiž po nich daleko více než od server-side aplikací. Chceme nabídnout daleko vyšší uživatelský zážitek. Je trochu zbytečné s každou akcí překreslovat celou stránku, když můžeme změny bleskově provádět pomocí funkcí DOMu a uživateli tak dopřát pohodlí, které zná z desktopových aplikací.
 
 ##Zlý DOM
 
@@ -53,7 +53,7 @@ import React from 'react';
 export default class Counter extends React.Component {
 ```
 
-**Nikdy nesmíme zapomenout na importování Reactu**. I když to není na první pohled zřejmé, tak ony HTML tagy (JSX) jsou ve skutečnosti převlečené funkce Reactu, ale to bychom teď předbíhali. Novou komponentu jednoduše oddědíme od `React.Component` a `export default class Counter` nám komponentu spřístupní napříč celou aplikací.
+**Nikdy nesmíme zapomenout na importování Reactu**. I když to není na první pohled zřejmé, tak ony HTML tagy (JSX) jsou ve skutečnosti převlečené funkce Reactu, ale to bychom teď předbíhali. Novou komponentu jednoduše oddědíme od `React.Component` a `export default class Counter` nám komponentu zpřístupní napříč celou aplikací.
 
 **React komponenty mají pouze jednu povinnou metodu a to `render()`**. V ní se očekává, že popíšete strukturu komponenty včetně jejích závislostí na data. Metoda musí pak vrátit 1 root element (například `<div/>`), který už může mít libovolný počet potomků včetně dalších React komponent. Takhle vypadá ta naše:
 
