@@ -76,7 +76,7 @@ render() {
 
 Klikací tlačítko má atribut `onClick`. **Vzpomínáte na poučku, že se nemají používat tyto inline atributy pro volání JS? Tak ta stále platí.** Nicméně protože `<button/>` je ve skutečnosti JS funkce a ne HTML element, tak i `onClick` nemá s tím klasickým moc společného.
 
-React má totiž propracované delegování event a tak i když budete mít v aplikaci tisíc onClicků, tak z nich React udělá jenom jeden, který pověsí na root element a příchozí eventy nechá probublat k patřičným odběratelům. To velmi šetří výkon a vám nervy, pokud byste podobnou (a nutnou) optimalizaci museli sami implementovat. V Reactu tak můžete libovolně "plýtvat" s listenery jako `onKeyDown`, `onCopy`, `onFocus`, `onScroll` ... Je jich daleko [více](https://facebook.github.io/react/docs/events.html).
+React má totiž propracované delegování eventů a tak i když budete mít v aplikaci tisíc onClicků, tak z nich React udělá jenom jeden, který pověsí na root element a příchozí eventy nechá probublat k patřičným odběratelům. To velmi šetří výkon a vám nervy, pokud byste podobnou (a nutnou) optimalizaci museli sami implementovat. V Reactu tak můžete libovolně "plýtvat" s listenery jako `onKeyDown`, `onCopy`, `onFocus`, `onScroll` ... Je jich daleko [více](https://facebook.github.io/react/docs/events.html).
 
 ```js
 onClick={(e) => this.handleClick(e)}
@@ -152,7 +152,7 @@ export default class Counter extends React.Component {
 
 ##Závěrem
 
-**Představili jsme si React, jeho krátkou historii a související projekty**. Jedním ze strašáků "programování v prohlížeči" je DOM, často chybně a neférově zaměňován s JavaScriptem. React nám mj. umožňuje kompletní abstrakci od DOMu. Strukturu jednotlivých komponent zapisujeme (deklarujeme) skládáním React funkcí, kterým následně dodáváme data a tím pro nás práce končí. React toho nabízí samozřejmě daleko více. Nakousli jsme třeba i systém event. **S Reactem je to tak trochu jako dobrým čajem nebo kafem**. Zpočátku vám bude připadat divný a musíte se k němu postupně "propít". Až poté se stane nepostradatelnou součástí vašeho programátorského dne.
+**Představili jsme si React, jeho krátkou historii a související projekty**. Jedním ze strašáků "programování v prohlížeči" je DOM, často chybně a neférově zaměňován s JavaScriptem. React nám mj. umožňuje kompletní abstrakci od DOMu. Strukturu jednotlivých komponent zapisujeme (deklarujeme) skládáním React funkcí, kterým následně dodáváme data a tím pro nás práce končí. React toho nabízí samozřejmě daleko více. Nakousli jsme třeba i systém eventů. **S Reactem je to tak trochu jako dobrým čajem nebo kafem**. Zpočátku vám bude připadat divný a musíte se k němu postupně "propít". Až poté se stane nepostradatelnou součástí vašeho programátorského dne.
 
 **Příště si ukážeme, co jsou to `this.props` a jak se liší od `this.state`**. Také si více povíme o životním cyklu komponenty a jejích dalších metodách.
 
