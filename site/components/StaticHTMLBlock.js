@@ -1,6 +1,5 @@
 import React from 'react';
 import CodeBlock from './CodeBlock';
-var Counter = require('../../examples/react-uvod/counter');
 
 export default class StaticHTMLBlock {
   static propTypes = {
