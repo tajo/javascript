@@ -16,7 +16,7 @@ Druhým nejužitečnějším panelem je `Elements`. **Můžete v něm procházet
   <img src="pics/chrome.png" class="pic" title="Chrome s otevřenou konzolí" />
 </p>
 
-Další panely už budete používat asi méně. Velmi šikovný je `Networks`, ve kterém si můžete přehledně například vyfiltrovat XHR requesty. V `Sources` pak můžete debugovat pomocí breakpointů. Doinstalovat si můžete i speciální [panel pro React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en). Je podobný `Elements`, ale poskytuje i informace o stavu React komponent. Nicméně reálně ho moc nepoužívám.
+Další panely už budete používat asi méně. Velmi šikovný je `Network`, ve kterém si můžete přehledně například vyfiltrovat XHR requesty. V `Sources` pak můžete debugovat pomocí breakpointů. Doinstalovat si můžete i speciální [panel pro React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en). Je podobný `Elements`, ale poskytuje i informace o stavu React komponent. Nicméně reálně ho moc nepoužívám.
 
 V nastavení vývojářských nástroju si ještě zkontrolujte, že máte zaškrtnuté `Enable CSS source maps` a `Enable JavaScript source maps`. V našich projektech nebudeme používat přímo JavaScript, ale Babel, který se do něho překládá. **Source mapa pak umožní prohlížeči namapovat řádky výsledného JavaScriptu na zdrojový Babel** a my se tak dozvíme správný řádek a soubor, kde došlo k chybě. Obdobně to funguje pro CSS a preprocesory jako je LESS.
 
