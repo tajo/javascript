@@ -131,7 +131,7 @@ alert("2π = " + exp(pi, e));
 Pokud máte nějaké otázky ohledně ES6 modulů (a věřím, že jich určitě bude spousta), koukněte se na pěkný přehled [sem](http://www.2ality.com/2014/09/es6-modules-final.html).
 
 ### Ostatní
-Velmi užitečné jsou také **defaultní hodnoty** pro argumenty funkcí, **šablony** pro řetězce (aneb už není potřeba zběsile používat `+` pro spojování řetězců a proměnných) či **desctructuring**. Pro více detailů navštivte [dokumentaci](https://babeljs.io/docs/learn-es6).
+Velmi užitečné jsou také **defaultní hodnoty** pro argumenty funkcí, **šablony** pro řetězce (aneb už není potřeba zběsile používat `+` pro spojování řetězců a proměnných) či **destructuring**. Pro více detailů navštivte [dokumentaci](https://babeljs.io/docs/learn-es6).
 
 ##Závěrem
 JavaScript už dávno není pouze doplňkovou hračkou v prohlížečích, ale začíná nám ovládat i ostatní platformy. Velké firmy do něj investují nemálo peněz a jeho vývoj tak probíhá překotným tempem. Díky tomu pak vznikají špičkové nástroje jako je Babel. To co na první pohled vypadá jako divoká džungle, tak nakonec příspívá k pružnějšímu vývoji, nutí výrobce prohlížečů rychleji implementovat nové funkce a programátor tím přesto nemusí trpět. Co si tedy z článku odnést? Jednoduché ponaučení! Vždy si přidejte Babel do svého vývojářského procesu a užívejte si budoucnost už dnes. **JavaScript je mrtev, ať žije Babel!**
