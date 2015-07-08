@@ -9,7 +9,7 @@
 
 ##Trocha historie
 
-**React spatřil světlo světa v květnu 2013**. Opensourcnul ho Facebook, který ho už několik let před tím sám interně používal a vylepšoval. Prvotní vydání se však dočkalo velkého výsměchu. Odezva byla dokonce tak špatná, že Facebook chvíli uvažoval i o jeho stáhnutí. Terčem kritiky se stalo především míchání "HTML a programování". Podobné obavy nedávno vyjádřili i někteří [prominentní čeští webaři](https://twitter.com/geekovo/status/604710448131391490). Postupně se však ukázalo, že došlo k pouze nepochopení základního konceptu a nejen FE vývojáři si začli rychle osvojovat a užívat nové fundamenty, které React přinesl.
+**React spatřil světlo světa v květnu 2013**. Opensourcoval ho Facebook, který ho už několik let před tím sám interně používal a vylepšoval. Prvotní vydání se však dočkalo velkého výsměchu. Odezva byla dokonce tak špatná, že Facebook chvíli uvažoval i o jeho stáhnutí. Terčem kritiky se stalo především míchání "HTML a programování". Podobné obavy nedávno vyjádřili i někteří [prominentní čeští webaři](https://twitter.com/geekovo/status/604710448131391490). Postupně se však ukázalo, že došlo k pouze nepochopení základního konceptu a nejen FE vývojáři si začli rychle osvojovat a užívat nové fundamenty, které React přinesl.
 
 **K dnešnímu dni** (červenec 2015) **má 4800 commitů, 25 000 stargazerů a 444 contributorů a je tak jedním z nejoblíbenějších a nejaktivnějších repozitářů na GitHubu**. Facebook během této doby uvolnil i další JS projekty jako [React Native](https://facebook.github.io/react-native/) (React pro iOS a blíží se i vydání Android verze), [Immutable.js](https://facebook.github.io/immutable-js/) (immutable kolekce) či [Flux](https://facebook.github.io/flux/) (M a C doplňující React v pomyslném MVC).
 
