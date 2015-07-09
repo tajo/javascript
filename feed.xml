@@ -21,6 +21,16 @@
     </image>
 
     <item>
+      <title>React - Props vs State</title>
+      <link>http://www.dzejes.cz/react-props-vs-state.html</link>
+      <pubDate>Thu, 9 July 2015 12:24:00 +0000</pubDate>
+      <dc:creator>Vojtěch Mikšů</dc:creator>
+      <description>
+        React se točí kolem props a tak je nejvyšší čas si ukázat, co jsou zač. Minule jsem už naznačil, že jde o druhý zdroj dat, který React komponenty pro své vykreslení používají. Povíme si, jak se props liší od state a jakým způsobem se používají. To vše si demonstrujeme na pokročilejším příkladě, který se bude skládat z více komponent. Na nich uvidíte i to, jakým způsobem se komponenty do sebe skládají a jak spolu komunikují. Dnes to bude o úplných základech Reactu.
+      </description>
+    </item>
+
+    <item>
       <title>React - Úvod</title>
       <link>http://www.dzejes.cz/react-uvod.html</link>
       <pubDate>Tue, 7 July 2015 14:24:00 +0000</pubDate>
