@@ -20,7 +20,7 @@ render() {
 }
 ```
 
-**Animal je přitom jen další React komponenta**. Ta tímto získala přístup k `this.props.name` a `this.props.dog`. Její `render` metoda může vypadat třeba takto:
+**Animal je přitom jen další React komponenta**. Ta tímto získala přístup k `this.props.name` a `this.props.type`. Její `render` metoda může vypadat třeba takto:
 
 ```js
 render() {
