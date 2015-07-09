@@ -2,11 +2,6 @@ import React from 'react';
 
 export default class Car extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {details: false};
-  }
-
   render() {
     const styles = {
       border: '2px solid #CCC',
@@ -18,23 +13,32 @@ export default class Car extends React.Component {
 
     return (
       <div style={styles}>
-        <b>Brand:</b> {this.props.car.brand}
-        {this.state.details &&
+        <div>
+          <b>Značka:</b> {this.props.car.brand}
+        </div>
+        {this.props.car.details &&
           <div>
             <b>Model:</b> {this.props.car.model} <br />
-            <b>Year:</b> {this.props.car.year} <br />
+            <b>Rok:</b> {this.props.car.year} <br />
           </div>
         }
 
-        <button onClick={() => this.toggle()} style={{display: 'block'}}>
-          {this.state.details ? 'Less' : 'More'}
+        <button onClick={() => this.props.toggle(this.props.car.id)}>
+          {this.props.car.details ? 'Méně' : 'Více'}
+        </button>
+        {' '}
+
+        <button onClick={() => this.props.remove(this.props.car.id)}>
+          x
         </button>
       </div>
     );
   }
 
-  toggle() {
-    this.setState({details: !this.state.details});
-  }
-
 }
+
+Car.propTypes = {
+  car: React.PropTypes.object.isRequired,
+  remove: React.PropTypes.func.isRequired,
+  toggle: React.PropTypes.func.isRequired
+};
