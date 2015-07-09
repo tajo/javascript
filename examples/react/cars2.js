@@ -16,7 +16,8 @@ export default class Cars1 extends React.Component {
       id: 2,
       brand: 'BMW',
       model: 'M5',
-      year: '2013', details: false
+      year: '2013',
+      details: false
     };
 
     return (

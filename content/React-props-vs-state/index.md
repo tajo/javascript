@@ -1,12 +1,12 @@
 #React - Props vs State
 
-**React se točí kolem props a tak je nejvyšší čas ukázat, co jsou zač**. Minule jsem už naznačil, že jde o druhý zdroj dat, který React komponenty pro své vykreslení používají. Povíme si, jak se props liší od state a jakým způsobem se používají. To vše si demonstrujeme na pokročilejším příkladě, který se bude skládat z více komponent. Na nich uvidíte i to, jakým způsobem se komponenty do sebe skládají a jak komunikují. **Dnes to bude o úplných základech Reactu**.
+**React se točí kolem props a tak je nejvyšší čas si ukázat, co jsou zač**. Minule jsem už naznačil, že jde o druhý zdroj dat, který React komponenty pro své vykreslení používají. Povíme si, jak se props liší od state a jakým způsobem se používají. To vše si demonstrujeme na pokročilejším příkladě, který se bude skládat z více komponent. Na nich uvidíte i to, jakým způsobem se komponenty do sebe skládají a jak spolu komunikují. **Dnes to bude o úplných základech Reactu**.
 
 ##Props
 
 **React komponenty lze do sebe skládat** a proto je potřeba, aby měly prostředek pro předávání dat. Tím jsou právě ony props, které tak tvoří páteř všech React aplikací.
 
-V hlavní React komponentě můžeme mít funkci:
+V hlavní React komponentě můžeme mít metodu:
 
 ```js
 render() {
@@ -20,7 +20,7 @@ render() {
 }
 ```
 
-**Animal je přitom další React komponenta**. Ta tímto získala přístup k `this.props.name` a `this.props.dog`. Její `render` metoda může vypadat třeba takto:
+**Animal je přitom jen další React komponenta**. Ta tímto získala přístup k `this.props.name` a `this.props.dog`. Její `render` metoda může vypadat třeba takto:
 
 ```js
 render() {
@@ -91,7 +91,7 @@ export default class Car extends React.Component {
 }
 ```
 
-Všimnětě si, že v JSX nemůžete obalit kus kódu do nějakého makra `{if} ... {else}`, protože by to nebyla regulérní JS syntax. **Do `{}` lze zabalit jen validní JS výrazy, něco co se dá vypsat**. Nikoliv třeba řídící bloky. O JSX bude ještě samostatný článek. Můžeme si ale pomoct jednoduchou obezličkou viz výše. Pokud bychom trvali na `if`, mohli bychom si výsledek předuložit do nějaké proměnné před `return()`.
+Všimnětě si, že v JSX nemůžete obalit kus kódu do nějakého makra `{if} ... {else}`, protože by to nebyla regulérní JS syntax. **Do `{}` lze zabalit jen validní JS výrazy, něco co se dá vypsat**. Nikoliv třeba řídící bloky. O JSX bude ještě samostatný článek. Můžeme si ale pomoct jednoduchou obezličkou viz výše. Pokud bychom přesto trvali na `if`, mohli bychom si výsledek předuložit do nějaké proměnné před `return()`.
 
 **Jak si to teď otestujeme?** Vytvoříme si další hlavní komponentu a v ní si `Car` vypíšeme:
 
@@ -196,7 +196,8 @@ export default class Cars extends React.Component {
       id: 2,
       brand: 'BMW',
       model: 'M5',
-      year: '2013', details: false
+      year: '2013',
+      details: false
     };
 
     return (
@@ -269,7 +270,7 @@ AddCar.propTypes = {
 };
 ```
 
-V metodě `render()` není mnoho zajímavého. Za zmínku stojí, že **občas jsou některé atributy v JSX přejmenované**. Například `for` na `htmlFor`, či `class` na `className`. To proto, aby nedocházelo ko kolizím s klíčovými slovy JS. Pokud byste na to však zapomněli, tak vám React poradí v konzoli. React je velmi výřečný co se warningů a errorů týče, což je dobře.
+V metodě `render()` není mnoho zajímavého. Za zmínku stojí, že **občas jsou některé atributy v JSX přejmenované**. Například `for` na `htmlFor`, či `class` na `className`. To proto, aby nedocházelo ke kolizím s klíčovými slovy JS. Pokud byste na to však zapomněli, tak vám React poradí v konzoli. React je velmi výřečný co se warningů a errorů týče, což je dobře.
 
 Formulář má na sobě pověšený listener `onSubmit`, který po odeslání zavolá příslušnou metodu. **V ní musíme ihned zavolat `e.preventDefault()`**, jinak by došlo k redirectu aneb standardní chování prohlížeče.
 
@@ -375,7 +376,7 @@ toggleCar(id) {
 }
 ```
 
-`map` zavolá pro každý prvek pole funkci, kterou mu předáme. Není to úplně hezké řešení, ale nám to pro tuto chvíli stačí. Lepší by bylo nemít auta v poli, ale v objektu (mapě) a přistupovat k nim přímo pomocí `id`. Nicméně, to nám zase nezaručí jednoznačné pořadí. Brzo si však představíme `Immutable.js`, které rožšiřuje JS o pěkné immutable kolekce. Například zde by se nám velmi hodilo `Immutable.OrderedMap()`.
+`map` zavolá pro každý prvek pole funkci, kterou mu předáme. Není to úplně hezké řešení, ale nám to pro tuto chvíli stačí. Lepší by bylo nemít auta v poli, ale v objektu (mapě) a přistupovat k nim přímo pomocí `id`. Nicméně, to nám zase nezaručí jednoznačné pořadí. Brzo si však představíme [Immutable.js](https://facebook.github.io/immutable-js/), které rožšiřuje JS o pěkné immutable kolekce. Například zde by se nám velmi hodilo `Immutable.OrderedMap()`.
 
 V `render()` už k žádným překvapením nedochází. Vše si pouze vypíšeme:
 

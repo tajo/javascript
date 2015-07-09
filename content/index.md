@@ -19,6 +19,8 @@ Hlavním hrdinou dnešního článku se stane bundlovací nástroj webpack. S je
 
 ### **[React - Props vs State](react-props-vs-state.html)**
 
+React se točí kolem props a tak je nejvyšší čas si ukázat, co jsou zač. Povíme si, jak se props liší od state a jakým způsobem se používají. **To vše si demonstrujeme na pokročilejším příkladě, který se bude skládat z více komponent.**
+
 ##Pro koho jsou články určeny?
 Pro čtenáře, kteří již běžně programují webové aplikace, ale převážně pomocí serverových frameworků typu **[Nette](http://nette.org)**. Mají však už i nějaké zkušenosti s JavaScriptem, kterým občas něco animují nebo posílají AJAXem. Dále také pro programátory, kteří používají JavaScriptové frameworky jako [Angular](http://angularjs.org), [Ember](http://emberjs.com) či [Meteor](https://www.meteor.com) anebo knihovnu [Google Closure](https://developers.google.com/closure/). Jsou však zvědaví, proč je poslední dobou tolik povyku kolem **Facebooku**, **[Reactu](http://reactjs.com)** a **[Fluxu](https://facebook.github.io/flux/)**. Zkrátka, pro všechny lidi s otevřenou hlavou, kteří nevěří na pomluvy a chtějí stavět i velké, robustní a výkonné aplikace běžící v prohlížeči.
 
