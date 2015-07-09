@@ -17,7 +17,7 @@ export default class Cars extends React.Component {
 
   render() {
     return (
-      <div className="cars">
+      <div>
         <AddCar add={this.addCar} />
         <h3>Auta ({this.state.cars.length})</h3>
         {this.state.cars.map(car => {

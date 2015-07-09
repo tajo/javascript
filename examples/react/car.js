@@ -19,7 +19,7 @@ export default class Car extends React.Component {
         {this.props.car.details &&
           <div>
             <b>Model:</b> {this.props.car.model} <br />
-            <b>Rok:</b> {this.props.car.year} <br />
+            <b>Rok:</b> {this.props.car.year}
           </div>
         }
 
