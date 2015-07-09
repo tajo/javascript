@@ -28,6 +28,12 @@ export const Articles = {
     location: 'react-uvod.html',
     title: 'React - Úvod',
     prev: 'STACK',
+    next: 'REACT_PROPS_VS_STATE'
+  },
+  REACT_PROPS_VS_STATE: {
+    location: 'react-props-vs-state.html',
+    title: 'React - Props vs State',
+    prev: 'REACT_UVOD',
     next: null
   }
 };

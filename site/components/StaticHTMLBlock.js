@@ -27,20 +27,19 @@ export default class StaticHTMLBlock {
       switch (i % 2) {
       case 0:
         elements.push(
-          <div key={i}
+          <div key={elements.length}
                style={{ width: '100%' }}
                dangerouslySetInnerHTML={{__html: content}} />
         );
         break;
       case 1:
-        //elements.push(React.createElement(require('../../examples/' + content)));
         elements.push(
-          <div className="codeBlock" style={{borderLeft: 'solid 5px rgba(44, 83, 158, 0.9)'}}>
+          <div className="codeBlock" style={{borderLeft: 'solid 5px rgba(44, 83, 158, 0.9)'}} key={elements.length}>
             {React.createElement(
               require('../../examples/react/' + content + '.js'),
               {key: content}
             )}
-            <div style={{fontSize: '0.8em', float: 'right'}}>
+            <div style={{fontSize: '0.8em', bottom: 0, right: 0, margin: 5, position: 'absolute'}}>
               <a href={'https://github.com/tajo/javascript/tree/master/examples/react/' + content + '.js'}>
                 zdrojový kód
               </a>
