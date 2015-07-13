@@ -34,6 +34,12 @@ export const Articles = {
     location: 'react-props-vs-state.html',
     title: 'React - Props vs State',
     prev: 'REACT_UVOD',
+    next: 'REACT_JSX'
+  },
+  REACT_JSX: {
+    location: 'react-jsx.html',
+    title: 'React - JSX',
+    prev: 'REACT_PROPS_VS_STATE',
     next: null
   }
 };

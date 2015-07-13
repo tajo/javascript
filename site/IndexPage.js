@@ -11,7 +11,8 @@ const ArticleMap = {
   NASTROJE: require('../content/Nastroje/index.md'),
   STACK: require('../content/Stack/index.md'),
   REACT_UVOD: require('../content/React-uvod/index.md'),
-  REACT_PROPS_VS_STATE: require('../content/React-props-vs-state/index.md')
+  REACT_PROPS_VS_STATE: require('../content/React-props-vs-state/index.md'),
+  REACT_JSX: require('../content/React-jsx/index.md')
 };
 
 export default class IndexPage extends Component {
