@@ -22,7 +22,7 @@ A tak vývojáři raději mění DOM postupně pomocí bezpečnějších metod t
 
 ##Funkce místo řetězců
 
-Definice komponent pomocí řetězců má tedy své limity. React však používá silnější nástroj - virtuální DOM (strom), který si vytvoří na základě **`render()` metod, které popisují strukturu komponent pomocí funkcí**. Tento virtuální DOM se spak pomocí `appendChild` či `innerHTML` promítne do DOMu skutečného a dojde tak k překreslení v prohlížeči. Pokud se u některé komponenty změní props nebo state, opětovně se zavolá metoda `render()`, vznikne nový virtuální DOM, porovná se s tím s předchozím a rozdíly mezi němi se nejefektivnějším možným způsobem promítnou opět i do DOMu skutečného.
+Definice komponent pomocí řetězců má tedy své limity. React však používá silnější nástroj - virtuální DOM (strom), který si vytvoří na základě **`render()` metod, které popisují strukturu komponent pomocí funkcí**. Tento virtuální DOM se pak pomocí `appendChild` či `innerHTML` promítne do DOMu skutečného a dojde tak k překreslení v prohlížeči. Pokud se u některé komponenty změní props nebo state, opětovně se zavolá metoda `render()`, vznikne nový virtuální DOM, porovná se s tím s předchozím a rozdíly se nejefektivnějším možným způsobem promítnou i do DOMu skutečného.
 
 **Jak se ale HTML dá převést na funkce?** Názvy jednotlivých elementů nahradíme za názvy funkcí a z atributů (props) uděláme jeden velký argument - mapu. Vnořené elementy (děti) pak budou představovat další argumenty (mimochodem v React komponentě jsou přístupné pomocí `this.props.children`).
 
