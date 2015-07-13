@@ -108,8 +108,8 @@ Jak vidíte, je tedy čistě na vás a vašich preferencích, kterou variantu si
 Teď když vidíte, co je výsledkem JSX transformace, tak by vám už mělo být i jasné, co všechno můžete a nemůžete zapsat do `{}`. Kód uzavřený v `{}` je jednoduše čistý JavaScript.
 
 ```js
-<div>
-  <button className={red}>{label}</button>
+<div className={red}>
+  <button>{label}</button>
 </div>
 ```
 
