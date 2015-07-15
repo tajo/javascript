@@ -8,7 +8,7 @@ Pojem "šablonovací systém" vám asi není neznámý. V oblasti webů má za �
 
 ##DOM vs řetězce
 
-Slepování řetězců funguje dobře na straně serveru, protože s reloadem celé stránky odpadá starost o stav stránky (například co bylo vyplněné ve formuláři) a vše se načte a spustí znova. **Jenže co dělat, když chceme chceme aktualizovat jenom malé výseky stránky pomocí DOMu?** Můžeme nad upravovaným DOM elementem zavolat:
+Slepování řetězců funguje dobře na straně serveru, protože s reloadem celé stránky odpadá starost o stav stránky (například co bylo vyplněné ve formuláři) a vše se načte a spustí znova. **Jenže co dělat, když chceme aktualizovat jenom malé výseky stránky pomocí DOMu?** Můžeme nad upravovaným DOM elementem zavolat:
 
 ```js
 Element.innerHTML = '<div>Komponenta, kterou jsme aktualizovali</div>';
