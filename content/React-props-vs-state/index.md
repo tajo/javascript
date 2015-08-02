@@ -50,7 +50,7 @@ Už víte, že `render()` se volá při změně props a state. **S jeho volání
 
 **Jaké stavy v aplikaci vlastně budeme mít? Jde především o detaily aut**. Vhodným kandidátem pro uložení je pole objektů, kde každý objekt bude reprezentovat jedno auto. Ale kam s ním? V naší jednoduché aplikaci moc na výběr nemáme. Pole aut musí být v hlavní komponentě, která jednotlivá auta bude vykreslovat.
 
-**Dalším stavem pak bude to, zda je karta auta rozbalená či zabalená.** Asi vás ihned napadne, že tento stav patří do komponenty auta. Také ho ale můžeme umístit jako další vlasnost objektu auto. Oba přístupy jsou v pohodě.
+**Dalším stavem pak bude to, zda je karta auta rozbalená či zabalená.** Asi vás ihned napadne, že tento stav patří do komponenty auta. Také ho ale můžeme umístit jako další vlastnost objektu auto. Oba přístupy jsou v pohodě.
 
 Nicméně, obecným **trendem v React aplikacích je zahnat veškeré stavy někam "do rohu" na jedno místo**. Proč nechceme mít stavy roztroušené po aplikaci? Tak například si představte, že bychom chtěli přidat tlačítko "Rozbal všechna auta". Podobnou funkcionalitu bychom přirozeně umístili do hlavní komponenty, ale jak pak aktualizovat tento stav v jednotlivých komponentách aut? Není způsob jak komponenty aut proiterovat a zavolat `auto.rozbalit()`, protože to by byl imperativní přístup, který v Reactu (naštěstí) nefunguje.
 
@@ -346,7 +346,7 @@ addCar(car) {
 }
 ```
 
-Jedinou zvlášností je to, že jsme si potřebovali "vygenerovat" unikátní `id`. Použil jsem prostou inkrementaci `id` posledního přidaného auta. V případě, že v poli `this.state.cars` už žádné položky nejsou, tak se použije `1`. Mohli bychom použít třeba i náhodný řetězec.
+Jedinou zvláštností je to, že jsme si potřebovali "vygenerovat" unikátní `id`. Použil jsem prostou inkrementaci `id` posledního přidaného auta. V případě, že v poli `this.state.cars` už žádné položky nejsou, tak se použije `1`. Mohli bychom použít třeba i náhodný řetězec.
 
 `removeCar` má podobu:
 
