@@ -32,6 +32,7 @@ npm run build-site
 echo "$CUSTOM_DOMAIN" >> __site__/CNAME
 cp site/logo.png __site__/logo.png
 cp site/feed.xml __site__/feed.xml
+cp site/_config.yml __site__/_config.yml
 open __site__/index.html
 cd ../
 

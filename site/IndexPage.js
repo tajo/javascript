@@ -43,6 +43,11 @@ export default class IndexPage extends Component {
     const googleAnalytics = {
       __html: `
         <script>
+          var host = "dzejes.cz";
+          if ((host == window.location.host) && (window.location.protocol != "https:")) {
+            window.location.protocol = "https";
+          }
+
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -62,6 +67,7 @@ export default class IndexPage extends Component {
           <link rel="stylesheet" type="text/css" href={this.props.files['main.css'] + '?v=' + require('../package').version} />
           <link rel="icon" type="image/png" href={favicon} />
           <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+          <link rel="canonical" href={'https://www.dzejes.cz' + (this.props.location === 'index.html' ? '' : '/' + this.props.location)} />
           <base target="_blank" />
         </head>
         <body>
