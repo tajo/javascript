@@ -210,7 +210,7 @@ Warning: Unknown DOM property class. Did you mean className?
 
 ##Závěrem
 
-**JSX pouze zpříjemňuje čitelnost komponent.** Bude se líbit zejména kodérům. React však můžete plnohodnotně používat i zcela bez něj. **Důležité je však to, co se skrývá pod ním - funkce.** Funkce totiž poskytují skvělou a netušeně mocnou abstrakci pro skládání jednotlivých komponent. I po 2 letech od uvedení Reactu se tak stále objevují nové a lepší způsoby, jakými do sebe jednotlivé komponenty skládat, což si určitě ukážeme i v dalších dílech. To by nebylo možné, pokud by React a JSX nebyly pouze čistým JavaScriptem. Příště si ukážeme knihovnu [Immutable.js](https://facebook.github.io/immutable-js/) a způsob jak díky ní 100x zrychlit už tak rychlou React aplikaci.
+**JSX nejen zpříjemňuje čitelnost komponent**, ale také minimalizuje riziko napsání chybného HTML kódu, protože kompilátor kompiluje i JSX a při vzniku chyby v kompilování nás na ní kompilátor přesně upozorní. To se bude líbit zejména kodérům. React však můžete plnohodnotně používat i zcela bez něj. **Důležité je však to, co se skrývá pod ním - funkce.** Funkce totiž poskytují skvělou a netušeně mocnou abstrakci pro skládání jednotlivých komponent. I po 2 letech od uvedení Reactu se tak stále objevují nové a lepší způsoby, jakými do sebe jednotlivé komponenty skládat, což si určitě ukážeme i v dalších dílech. To by nebylo možné, pokud by React a JSX nebyly pouze čistým JavaScriptem. Příště si ukážeme knihovnu [Immutable.js](https://facebook.github.io/immutable-js/) a způsob jak díky ní 100x zrychlit už tak rychlou React aplikaci.
 
 
 
