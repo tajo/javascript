@@ -43,7 +43,7 @@
     <item>
       <title>React - Úvod</title>
       <link>http://www.dzejes.cz/react-uvod.html</link>
-      <pubDate>Tue, 7 July 2015 14:24:00 +0000</pubDate>
+      <pubDate>Mon, 9 May 2016 14:24:00 +0000</pubDate>
       <dc:creator>Vojtěch Mikšů</dc:creator>
       <description>
         React je JavaScriptová knihovna pro vytváření webových komponent. V pomyslném MVC představuje "V" neboli view vrstvu a dal by se tak přirovnat například Latte v Nette. React je však daleko více. Přináší totiž zásadní změnu paradigma. S Reactem už nepíšeme kód, který něco mění, ale kód, který popisuje, jak má vypadat výsledek, což je řádově snažší úloha. Dvojnásob to pak platí, pokud tím výsledkem je "těžká váha" v podobě DOMu.

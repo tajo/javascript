@@ -11,9 +11,9 @@
 
 **React spatřil světlo světa v květnu 2013**. Opensourcoval ho Facebook, který ho už několik let před tím sám interně používal a vylepšoval. Prvotní vydání se však dočkalo velkého výsměchu. Odezva byla dokonce tak špatná, že Facebook chvíli uvažoval i o jeho stáhnutí. Terčem kritiky se stalo především míchání "HTML a programování". Podobné obavy nedávno vyjádřili i někteří [prominentní čeští webaři](https://twitter.com/geekovo/status/604710448131391490). Postupně se však ukázalo, že došlo k pouze nepochopení základního konceptu a nejen FE vývojáři si začli rychle osvojovat a užívat nové fundamenty, které React přinesl.
 
-**K dnešnímu dni** (červenec 2015) **má 4800 commitů, 25 000 stargazerů a 444 contributorů a je tak jedním z nejoblíbenějších a nejaktivnějších repozitářů na GitHubu**. Facebook během této doby uvolnil i další JS projekty jako [React Native](https://facebook.github.io/react-native/) (React pro iOS a blíží se i vydání Android verze), [Immutable.js](https://facebook.github.io/immutable-js/) (immutable kolekce) či [Flux](https://facebook.github.io/flux/) (M a C doplňující React v pomyslném MVC).
+**K dnešnímu dni** (květen 2016 **má 6600 commitů, 41 000 stargazerů a 685 contributorů a je tak jedním z nejoblíbenějších a nejaktivnějších repozitářů na GitHubu**. Facebook během této doby uvolnil i další JS projekty jako [React Native](https://facebook.github.io/react-native/) (React pro iOS a Android) či [Immutable.js](https://facebook.github.io/immutable-js/) (immutable kolekce).
 
-Horkou novinkou je pak [GraphQL](http://facebook.github.io/graphql/), což je dotazovací jazyk, kterým v komponentách popíšete, jaká data ze serveru potřebují. V srpnu 2015 pak vyjde [Relay](https://facebook.github.io/react/blog/2015/02/20/introducing-relay-and-graphql.html), který GraphQL bude umět na straně webu zpracovat a rýsuje se nám tak zajímavé řešení pro datovou komunikaci server-client, která dnes představuje nejtěžší část webové aplikace.
+Zajímavou knihovnou je také [GraphQL](http://facebook.github.io/graphql/), což je dotazovací jazyk, kterým v komponentách popíšete, jaká data ze serveru potřebují. Doplňuje ho [Relay](https://facebook.github.io/relay/), který GraphQL umí na straně webu zpracovat a je tak zajímavou alternativou pro datovou komunikaci server-client, která dnes představuje nejtěžší část webové aplikace.
 
 ##Pořád jen Facebook
 
@@ -39,7 +39,7 @@ DOM navíc představuje jednu velkou globální proměnnou, což přímo svádí
 
 ##Začínáme
 
-Je načase si ukázat první příklad. Komponenty si budete moc vyzkoušet přímo v rámci této stránky nebo zkopírováním do svého [vymazleného stacku](prvni-dev-stack.html). Najdete je samozřejmě také v [repozitáři](https://github.com/tajo/javascript/tree/master/examples/react). Budu téměř výhradně používat novou čerstvě vydanou ES6 syntax.
+Je načase si ukázat první příklad. Komponenty si budete moc vyzkoušet přímo v rámci této stránky nebo zkopírováním do svého [vymazleného stacku](prvni-dev-stack.html). Najdete je samozřejmě také v [repozitáři](https://github.com/tajo/javascript/tree/master/examples/react). Budu téměř výhradně používat ES6 syntax.
 
 Naše první komponenta se bude jmenovat `Counter` a **bude udržovat a zobrazovat počet našich kliknutí**. Hned se podívejte na výsledek:
 
