@@ -100,7 +100,7 @@ render: ->
 
 Existuje dokonce i [fork Coffee](https://github.com/jsdf/coffee-react-transform), kde lze používat JSX.
 
-Jak vidíte, je tedy čistě na vás a vašich preferencích, kterou variantu si zvolíte. **Můžete spokojeně používat React i úplně bez JSX.** Nicméně, drtivá většina lidí JSX s Reactem používá a tak všechny příklady najdete v něm. JSX je pevnou součástí [Babelu](babel.html) a brzy bude třeba i v TypeScriptu. Dostává se mu značné podpory i co se týče nástrojů, editorů a linterů. Stává se z něho průmyslový standard.
+Jak vidíte, je tedy čistě na vás a vašich preferencích, kterou variantu si zvolíte. **Můžete spokojeně používat React i úplně bez JSX.** Nicméně, drtivá většina lidí JSX s Reactem používá a tak všechny příklady najdete v něm. JSX je pevnou součástí [Babelu](babel.html) a třeba i TypeScriptu. Dostává se mu značné podpory i co se týče nástrojů, editorů a linterů. Stává se z něho průmyslový standard.
 
 
 ##JSX syntax
