@@ -34,7 +34,7 @@ Celkem dlouhý a náročný seznam, že? Na druhou stranu jsme programátoři, n
   <img src="pics/wheels.png" class="pic" title="Nemáte čas na zlepšování?" />
 </p>
 
-Stack pro tento článěk jsem samozřejmě nezačal budovat na zelené louce, ale pomohl si již existujícími řešeními. Pro naše účely jsem stáhnul [github.com/steida/este](https://github.com/steida/este) a vyházel z něho vše, co nepotřebujeme. Smazal jsem asi 90% repozitáře a zbylo jen nastavení webpacku aneb základní esence dev stacku. **Stack z tohoto článku je však stále použitelný i pro reálné nasazení**. Není to jen nějaká nevyzkoušená hračka. Chybí v něm ale ukázky návrhového vzoru Flux, server-side rendering, lokalizace a vůbec všechny patterny a techniky. Pokud je chcete prostudovat už dnes, pusťte se do [originálu](https://github.com/steida/este). Nebo si počkejte na další články.
+Stack pro tento článěk jsem samozřejmě nezačal budovat na zelené louce, ale pomohl si již existujícími řešeními. Pro naše účely jsem stáhnul [github.com/steida/este](https://github.com/steida/este) a vyházel z něho vše, co nepotřebujeme. Smazal jsem asi 90% repozitáře a zbylo jen nastavení webpacku aneb základní esence dev stacku. **Stack z tohoto článku je však stále použitelný i pro reálné nasazení**. Není to jen nějaká nevyzkoušená hračka. Chybí v něm ale Redux, server-side rendering, lokalizace a vůbec všechny patterny a techniky. Pokud je chcete prostudovat už dnes, prozkoumejte některý ze starter dev stacků, například [este](https://github.com/este/este). Nebo si počkejte na další články.
 
 ##Webpack
 

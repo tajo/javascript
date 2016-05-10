@@ -56,7 +56,7 @@ Nicméně, obecným **trendem v React aplikacích je zahnat veškeré stavy něk
 
 **Komponentu s vnitřním stavem nemůžeme 100% ovládat z vnějšího prostředí**. Pokud však stav vystrčíme někam ven a komponeta bude používat pro své vykreslování pouze zděděné props, dostaneme nad ní plnou kontrolu.
 
-**Lokální stav je tedy přijatelný pouze, pokud ho nikdy nebudeme potřebovat upravovat či číst vně komponenty**. Nicméně i takovýto superlokální stav můžeme snadno "globalizovat" a mít tak všechny React komponenty "čisté" a plně kontrolovatelné. To si však ukážeme až později s Flux architekturou. A nebojte, je globální stav a globální stav.
+**Lokální stav je tedy přijatelný pouze, pokud ho nikdy nebudeme potřebovat upravovat či číst vně komponenty**. Nicméně i takovýto superlokální stav můžeme snadno "globalizovat" a mít tak všechny React komponenty "čisté" a plně kontrolovatelné. To si však ukážeme až později s Redux architekturou. A nebojte, je globální stav a globální stav.
 
 ##Komponenta Auto
 
@@ -470,7 +470,7 @@ $$$cars$$$
 
 ##Nedostatky
 
-**Jelikož se zatím soustředíme pouze na React, používáme jeho komponenty na všechno.** V reálném použití se snažíme udržovat React komponenty co nejjednodušší a nikdy do nich nedáváme logiku typu `addCar`, `removeCar` či `toggleCar`. "Zpětná" komunikace pomocí předávání callbacků se také moc nepoužívá, jelikož to vytváří závislosti mezi jednotlivými komponentami. Navíc si představte, pokud byste měli v sobě zanořených třeba 5 komponent a museli byste si pořád vše předávat skrz props. **Chybí nám tu ono M a C, chybí nám tu zatím Flux**. Dalším nedostatkem je nepoužívání immutable kolekcí, které přinášejí optimalizaci velkou jako Brno. A samozřejmě **formulář by také zasloužil více lásky**.
+**Jelikož se zatím soustředíme pouze na React, používáme jeho komponenty na všechno.** V reálném použití se snažíme udržovat React komponenty co nejjednodušší a nikdy do nich nedáváme logiku typu `addCar`, `removeCar` či `toggleCar`. "Zpětná" komunikace pomocí předávání callbacků se také moc nepoužívá, jelikož to vytváří závislosti mezi jednotlivými komponentami. Navíc si představte, pokud byste měli v sobě zanořených třeba 5 komponent a museli byste si pořád vše předávat skrz props. **Chybí nám tu ono M a C, chybí nám tu zatím Redux**. Dalším nedostatkem je nepoužívání immutable kolekcí, které přinášejí optimalizaci velkou jako Brno. A samozřejmě **formulář by také zasloužil více lásky**.
 
 ##Závěrem
 

@@ -9,7 +9,7 @@ export default class HomePage {
       <div>
         <div className="masterHead">
           <p><b>O moderních webových aplikacích</b></p>
-          <p className="cover">#javascript #react #flux #immutable #nodejs #webpack</p>
+          <p className="cover">#javascript #react #redux #immutable #nodejs #webpack</p>
           <div className="circle-bg"></div>
           <div className="circle-bg2">DžejEs</div>
         </div>
