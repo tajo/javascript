@@ -1,16 +1,16 @@
 #JavaScript? Babel.
 
-JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o sobě poměrně **nepoužitelný**. Na vině je především způsob, jakým dochází k uvádění jeho nových verzí. Jak si s tím úspěšně a elegantně poradit?
+JavaScript má oproti většině ostatních jazyků jedno specifikum. Je sám o sobě obtížně **použitelný**. Na vině je především způsob, jakým dochází k uvádění jeho nových verzí. Jak si s tím úspěšně a elegantně poradit?
 
 ##JavaScript vs ECMAScript
 
 JavaScript je pouze jednou z implementací standardu jménem **ECMAScript**. Díky obrovské popularitě JavaScriptu se ovšem tyto dva termíny často libovolně zaměňují. Existují však ještě další implementace jako JScript či ActionScript.
 
-Ecma International od roku 1997 postupně vydává jednotlivé specifikace. Poslední stabilní verze je **[5.1 z roku 2011](http://wiki.ecmascript.org/lib/exe/fetch.php?id=start&cache=cache&media=resources:es5_errata_7-31-10.pdf)**. Letos v létě pak přijde nová edice s pořadovým číslem 6 označovaná také kódem **ES6** či **Harmony**. K dispozici je už [finální draft](http://wiki.ecmascript.org/lib/exe/fetch.php?id=harmony%3Aspecification_drafts&cache=cache&media=harmony:ecma-262_6th_edition_final_draft_-04-14-15.pdf). Zároveň se nám rodí i verze číslo 7.
+Ecma International od roku 1997 postupně vydává jednotlivé specifikace. Poslední stabilní verze je **[6 z roku 2015](http://www.ecma-international.org/ecma-262/6.0/)** často označovaná také jako **ES6**, **ES2015** či **Harmony**. Vývoj však neustává a tak se už pracuje na další verzi s pořadovým číslem sedm (také se užívá označení next).
 
 ##Podpora prohlížečů
 
-Asi vás nepřekvapí, že několik let stará specifikace 5.1 je dnes plně podporovaná napříč všemi prohlížeči. Co vás ovšem možná zaskočí je fakt, že výrobci prohlížečů **nečekají s implementací** nových specifikací na stabilní verze a tak už dnes například **Chrome podporuje 45% funkcí Harmony**, Firefox 69%, Internet Explorer 16%, Spartan 73% a Safari 20%. Aby toho nebylo málo, tak se v prohlížečích začínají objevovat i funkce z ECMAScriptu 7 a to navzdory tomu, že jsou teprve ve stádiu raného návrhu. Poměrně **slušná anarchie**.
+Implementace standardů je zdlouhavý proces, i přestože začíná ještě před finální verzí specifikací. ES6 se už těší velmi slušné podpoře. Detailní přehled naleznete [zde](http://kangax.github.io/compat-table/es6/). Potíž však je, že ne všichni uživatelé používají poslední verze prohlížečů. Největší problém je tradičně u Internet Exploreru, kde i ten nejnovější jedenáctý ES6 téměř vůbec nepodporuje. V praxi je tak potřeba se ES6 zatím úplně vyhnout. Lepší situace je u Node.js, kde poslední šestá verze má už 93% podporu ES6.
 
 ##Co s tím?
 My, tvůrci webových aplikací, musíme zajistit, aby naše stránky správně fungovaly ve všech běžně používaných prohlížečích. Jak si ale poradit s tím, že každý prohlížeč podporuje jiný set standardu Harmony? Nejjednodušším řešením je se zatím 6. verzi zcela vyhnout a **používat pouze funkce z verze 5.1**, která je již plně etablovaná. Nicméně tím se ocitnete v pozici malého dítěte, které v hračkárně toužebně pokukuje po mluvících a chodících robůtcích, zatímco doma si ještě několik let bude muset hrát s klacky a kameny. Předchozí příklad je samozřejmě nadsázka. Tak propastný rozdíl mezi verzemi zase není. Nicméně nebojte, existují lepší řešení.
@@ -22,13 +22,13 @@ ES6 přináší dva typy novinek. Tou první jsou **nové objekty a funkce** na 
 Druhou novinkou je nová syntax. V ES6 nám například přibyla nová klíčová slova jako `class`, `extends`, `let` či `import`. Tady si bohužel pouze s připojenou knihovnou už nevystačíme. Musíme použít **program - kompilátor**, který náš kód přeloží do starší plně podporované verze. V našem případě ES5. Navíc vyřeší i ony nové objekty a funkce z předchozí kapitoly (někdy ale bude i tak potřeba přidat polyfill). I zde platí, že v budoucnu budeme moct kompilátor z procesu úplně vynechat a náš kód bude v prohlížečích fungovat bez dodatečných úprav.
 
 ##V budoucnu?
-Problém ovšem je, že jakmile budou prohlížeče plně podporovat ES6, tak tu budeme mít finální specifikaci ES7 a mlsně pokukovat po ES8. Prakticky to znamená jediné. **Samotný JavaScript nikdy používat nemůžeme**, pokud nechceme být neustále 4 roky pozadu. Nejlepším řešením je tedy vždy používat jazyk kompilovaný do JavaScriptu.
+Problém ovšem je, že jakmile budou všichni plně podporovat ES6, tak tu budeme mít finální specifikaci ES7 a mlsně pokukovat po ES8. Prakticky to znamená jediné. **Samotný JavaScript nikdy používat nemůžeme**, pokud nechceme být neustále 3 roky pozadu. Nejlepším řešením je tedy vždy používat jazyk kompilovaný do JavaScriptu.
 
 ##Kompilátory
 Nových jazyků a kompilátorů existuje celá řada. Dají se rozdělit do 2 základních kategorií. Tou první jsou zcela nové jazyky, které mají úplně odlišnou syntax a nemůžeme je tedy použít na vylepšení již hotových projektů. Jde například o populární [CoffeeScript](http://coffeescript.org), [PureScript](http://www.purescript.org), [ClojureScript](https://github.com/clojure/clojurescript) či [Dart](https://www.dartlang.org) (ten se snažil dokonce úplně emancipovat od JS ale neúspěšně). Druhou kategorií jsou jazyky, které současný JavaScript pouze rozšiřují a snaží se více či méně zachovat dopřednou kompatibilitu. Jde třeba o [TypeScript](http://www.typescriptlang.org), [Traceur](https://github.com/google/traceur-compiler) či [Babel](https://babeljs.io). Vzájemným porovnáváním by se dalo popsat několik dalších stránek, proto ho nechávám na každém z vás. Dále se budu věnovat pouze poslednímu jmenovanému.
 
 ##Babel
-Babel nedávno vznikl přejmenováním z **6to5**, rychle se dostal na špičku popularity a získává stále větší momentum. **Proč je úspěšný?** Hlavním důvodem je jednoduše [nejširší podpora ES6 (77%) i ES7 (61%)](https://kangax.github.io/compat-table/es6/). Plně integruje **JSX a React** (taková ta podivnost, kdy píšete HTML tagy přímo do těla JavaScriptových funkcí). Skvěle si rozumí s editory a různými nástroji.
+Babel nedávno vznikl přejmenováním z **6to5**, rychle se dostal na špičku popularity a získává stále větší momentum. **Proč je úspěšný?** Hlavním důvodem je jednoduše [nejširší podpora ES6 i ES7 (ES Next)](https://kangax.github.io/compat-table/es6/). Plně integruje **JSX a React** (taková ta podivnost, kdy píšete HTML tagy přímo do těla JavaScriptových funkcí). Skvěle si rozumí s editory a různými nástroji.
 
 <p class="pic-container" style="max-width:250px">
   <img src="pics/babel.jpg" class="pic" title="Babel - nová generace JavaScriptu" />
@@ -37,10 +37,10 @@ Babel nedávno vznikl přejmenováním z **6to5**, rychle se dostal na špičku 
 Používají ho už dnes firmy jako **Facebook, Yahoo, Netflix, Mozilla a Evernote**. Můžete ho nasadit na serverovém prostředí **node.js**. Je to ale stále onen čistý JavaScript, takže s ním můžete bez problémů zkompilovat i svoje stávající projekty a s ES6 začít postupně.
 
 ##Co tedy ES6 přináší?
-Je toho spousta. Zmíním jenom pár těch nejzásadnějších věcí. Bylo by asi zbytečné kompletně překládat [tuto povedenou dokumentaci](https://babeljs.io/docs/learn-es6/) (ukázky kódu jsou zkopírované z této dokumentace).
+Je toho spousta. Zmíním jenom pár těch nejzásadnějších věcí. Bylo by asi zbytečné kompletně překládat [tuto povedenou dokumentaci](https://babeljs.io/docs/learn-es2015/) (ukázky kódu jsou zkopírované z této dokumentace).
 
 ###Třídy
-Rozlučte se s `prototype`. Máme tu novou hezčí syntax, která podporuje prototypovou **dědičnost**, volání rodičovské metody, statické metody či **konstruktory**.
+Rozlučte se s `prototype`. Máme tu novou hezčí syntax, která podporuje prototypovou **dědičnost**, volání rodičovské metody, statické metody či **konstruktory**. U zkušenějších JS vývojářů se však často setkáte s názorem, že tato nová syntax je velkou chybou, protože bude svádět nováčky ke klasickému OOP, což je v JS považováno z mnoha důvodů za špatné.
 
 ```js
 class SkinnedMesh extends THREE.Mesh {
@@ -135,4 +135,6 @@ Velmi užitečné jsou také **defaultní hodnoty** pro argumenty funkcí, **ša
 
 ##Závěrem
 JavaScript už dávno není pouze doplňkovou hračkou v prohlížečích, ale začíná nám ovládat i ostatní platformy. Velké firmy do něj investují nemálo peněz a jeho vývoj tak probíhá překotným tempem. Díky tomu pak vznikají špičkové nástroje jako je Babel. To co na první pohled vypadá jako divoká džungle, tak nakonec příspívá k pružnějšímu vývoji, nutí výrobce prohlížečů rychleji implementovat nové funkce a programátor tím přesto nemusí trpět. Co si tedy z článku odnést? Jednoduché ponaučení! Vždy si přidejte Babel do svého vývojářského procesu a užívejte si budoucnost už dnes. **JavaScript je mrtev, ať žije Babel!**
+
+*Poslední aktualizace: 9/5/16*
 

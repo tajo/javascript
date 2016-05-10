@@ -13,7 +13,6 @@ export default class Footer {
           Vylepšete článek <a href="https://github.com/tajo/javascript/pulls">pull requestem</a>.<br />
           Sledujte na <a href="https://twitter.com/vmiksu">twitteru</a>. {' '}
           <a href="/feed.xml">RSS</a>.<br />
-          Inspirováno <a href="https://github.com/este/este">Este</a>.<br />
           <b>Sdílejte!</b>
         </div>
       </footer>
