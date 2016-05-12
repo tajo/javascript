@@ -18,7 +18,7 @@ Doufám, že se vám demo líbilo. Na první pohled se možná nezdá jako kdov�
 **Chceme:**
 - **programovat v Babelu**, protože [je to lepší JavaScript](babel.html)
 - budovat velkou a škálovatelnou aplikaci → **chceme maximální modularitu**
-- mít možnost jednoduše integrovat a **používat 150 000 balíčků z npm**
+- mít možnost jednoduše integrovat a **používat stovky tisíce balíčků z npm**
 - používat nějaký šikovný **CSS preprocesor**, třeba LESS, do budoucna pak možná [postprocesor](http://www.zdrojak.cz/clanky/smeruje-css-od-preprocesingu-k-postprocesingu/)
 - po každé změně v JS i CSS **ihned vidět výsledek v prohlížeči**, ideálně bez refreshnutí
 - mít na očích **chybové hlášení** v přehledné formě
@@ -34,7 +34,7 @@ Celkem dlouhý a náročný seznam, že? Na druhou stranu jsme programátoři, n
   <img src="pics/wheels.png" class="pic" title="Nemáte čas na zlepšování?" />
 </p>
 
-Stack pro tento článěk jsem samozřejmě nezačal budovat na zelené louce, ale pomohl si již existujícími řešeními. Pro naše účely jsem stáhnul [github.com/steida/este](https://github.com/steida/este) a vyházel z něho vše, co nepotřebujeme. Smazal jsem asi 90% repozitáře a zbylo jen nastavení webpacku aneb základní esence dev stacku. **Stack z tohoto článku je však stále použitelný i pro reálné nasazení**. Není to jen nějaká nevyzkoušená hračka. Chybí v něm ale Redux, server-side rendering, lokalizace a vůbec všechny patterny a techniky. Pokud je chcete prostudovat už dnes, prozkoumejte některý ze starter dev stacků, například [este](https://github.com/este/este). Nebo si počkejte na další články.
+Stack pro tento článěk jsem samozřejmě nezačal budovat na zelené louce, ale pomohl si již existujícími řešeními. Částečně je inspirovaný [github.com/este/este](https://github.com/steida/este). Nicméně prošel velkou odtučňovací a kúrou a i některá nastavení jsou velmi zjednodušená. **Stack z tohoto článku je však stále použitelný i pro reálné nasazení**. Není to jen nějaká nevyzkoušená hračka. Chybí v něm ale Redux, server-side rendering, lokalizace a vůbec všechny patterny a techniky. Pokud je chcete prostudovat už dnes, prozkoumejte některý ze starter dev stacků, například [este](https://github.com/este/este). Nebo si počkejte na další články.
 
 ##Webpack
 
