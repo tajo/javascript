@@ -53,7 +53,7 @@
     <item>
       <title>První dev stack</title>
       <link>http://www.dzejes.cz/prvni-dev-stack.html</link>
-      <pubDate>Thu, 25 June 2015 12:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 May 2016 12:00:00 +0000</pubDate>
       <dc:creator>Vojtěch Mikšů</dc:creator>
       <description>
         Hlavním hrdinou dnešního článku se stane bundlovací nástroj webpack. Lecos jste se o něm mohli dozvědět už v minulém článku. S jeho pomocí postavíme první jednoduchou "Hello world" aplikaci v Reactu, která bude například používat Babel (JavaScript budoucnosti) a LESS (CSS preprocesor). Ukážeme si sílu moderních JS nástrojů v praxi.

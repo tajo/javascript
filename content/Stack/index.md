@@ -4,7 +4,7 @@ Hlavním hrdinou dnešního článku se stane bundlovací nástroj webpack. Leco
 
 ##Výsledek
 
-Protože určitě nemáte rádi překvapení, tak vám hned v úvodu ukážu k čemu se na konci tohoto článku dopracujeme. Výsledkem bude triviální 100% JavaScriptová aplikace s jedinou React komponentou. Jakékoliv úpravy v ní, či přiloženém LESSu se po uložení v editoru **okamžitě** projeví na stránce. **Bez refreshnutí, prosím pěkně!**
+Protože určitě nemáte rádi překvapení, tak vám hned v úvodu ukážu k čemu se na konci tohoto článku dopracujeme. Výsledkem bude triviální 100% JavaScriptová aplikace s jedinou React komponentou. Jakékoliv úpravy v ní, či přiloženém LESSu se po uložení v editoru **okamžitě** projeví na stránce. **Bez refreshnutí, prosím pěkně!** Kompletní zdrojové kódy najdete v [samostatném repozitáři na GitHubu](https://github.com/tajo/devstack).
 
 <p class="pic-container" style="max-width:630px">
   <img src="pics/result.gif" class="pic" title="Hot reloading v praxi" />
@@ -21,20 +21,20 @@ Doufám, že se vám demo líbilo. Na první pohled se možná nezdá jako kdov�
 - mít možnost jednoduše integrovat a **používat stovky tisíce balíčků z npm**
 - používat nějaký šikovný **CSS preprocesor**, třeba LESS, do budoucna pak možná [postprocesor](http://www.zdrojak.cz/clanky/smeruje-css-od-preprocesingu-k-postprocesingu/)
 - po každé změně v JS i CSS **ihned vidět výsledek v prohlížeči**, ideálně bez refreshnutí
-- mít na očích **chybové hlášení** v přehledné formě
 - mít **2 módy**: vývojový a produkční
 - v produkčním módu všechny potřebné JS soubory (moduly) **sloučit do jednoho a minimalizovat**, obdobně i pro kaskádové styly
 - v produkčním módu ignorovat warningy a jiné debugovací výpisy
 - mít **kód kontrolovaný linterem**, aby zůstal pěkný a jednotný
 - aby po prvotním nastavení **všechno fungovalo automaticky**
+- **jednoduchost!**
 
-Celkem dlouhý a náročný seznam, že? Na druhou stranu jsme programátoři, náš čas je drahý a investice do ladění vývojářského procesu se nám bohatě vrátí. **Chtějme pro sebe vždy to nejlepší**. Ale nebojte, nemusíte si kvůli tomu vyprázdnit kalendář na příští 3 měsíce. Sfoukneme to raz dva.
+Dlouhý a náročný seznam? Ale kdeže. Jsme programátoři, náš čas je extrémně drahý a menší investice do ladění vývojářského procesu se nám mnohonásobně vrátí. Navíc to sfoukneme raz dva!
 
 <p class="pic-container" style="max-width:534px">
   <img src="pics/wheels.png" class="pic" title="Nemáte čas na zlepšování?" />
 </p>
 
-Stack pro tento článěk jsem samozřejmě nezačal budovat na zelené louce, ale pomohl si již existujícími řešeními. Částečně je inspirovaný [github.com/este/este](https://github.com/steida/este). Nicméně prošel velkou odtučňovací a kúrou a i některá nastavení jsou velmi zjednodušená. **Stack z tohoto článku je však stále použitelný i pro reálné nasazení**. Není to jen nějaká nevyzkoušená hračka. Chybí v něm ale Redux, server-side rendering, lokalizace a vůbec všechny patterny a techniky. Pokud je chcete prostudovat už dnes, prozkoumejte některý ze starter dev stacků, například [este](https://github.com/este/este). Nebo si počkejte na další články.
+Stack pro tento článek jsem si samozřejmě nevycucal z prstu, ale inspiroval se z mnoha jiných. Mým cílem bylo postavit něco, co bude maximálně jednoduché a přesto použitelné pro reálnou aplikaci. Neobsahuje například React-router, Redux či Immutable.js. Jsou to výborné knihovny a vřele doporučuji je prozkoumat, ale pro začátek nejsou potřeba. Řeší totiž problémy, které vyvstávají až u velkých aplikací. Pokud přesto máte chuť a odvahu jít do toho "all-in", zkuste například [github.com/este/este](https://github.com/este/este).
 
 ##Webpack
 
@@ -50,91 +50,97 @@ Ano, to je hodně práce! Naštěstí existuje geniální webpack, který tohle 
 
 Webpack pak projde všechny soubory (importy) a sestaví komplexní graf závislostí. Ještě mu musíme ukázat, kde začít, co ignorovat, čím jednotlivé formáty zpracovat (loadery) a jaký od něho očekáváme výstup (jeden velký bundle, více menších bundlů ...). **Výstup pak bude 100% optimální**. Každá část aplikace dostane "na cestu" jen to co skutečně potřebuje a nic zbytečně navíc. Hurá!
 
-**Webpack má obsáhlou [dokumentaci](http://webpack.github.io/docs/)**, která je ale trochu nepřehledná. Můžete také nahlédnout do [hezkého shrnutí](https://github.com/petehunt/webpack-howto) od Pete Hunta. Nejlepší ale je použít již nějaký hotový boilerplate a na něm experimentovat. Webpack je velký a mocný nástroj, který je zároveň i extrémně modulární díky loaderům a pluginům. **Není však úplně snadné ho nastavit**.
+**Webpack má obsáhlou [dokumentaci](http://webpack.github.io/docs/)**, která je ale trochu nepřehledná. Můžete také nahlédnout do [hezkého shrnutí](https://github.com/petehunt/webpack-howto) od Pete Hunta. Webpack je velký a mocný nástroj, který je zároveň i extrémně modulární díky loaderům a pluginům. **Není však úplně snadné ho nastavit**.
 
 ##Hot module replacement
 
-Ještě si dovolím jednu malou kecací odbočku, protože pěvně věřím, že v blízké budoucnosti to bude velká věc! Jde o další skvělou funkci webpacku. Slouží čistě vývojářům během vývoje aplikace. Jde o hot module replacement. **Je to cesta, kterou je možné vyměňovat, přidávat a mazat moduly již v běžící aplikaci. Změny se pak na stránce projeví okamžitě bez reloadu.**
+V roce 2015 měl velkou slávu hot reloading. Jde o další skvělou funkci webpacku (dnes už je i nějaká podpora v browserify). Slouží čistě vývojářům během vývoje aplikace. **Je to cesta, kterou je možné vyměňovat, přidávat a mazat moduly již v běžící aplikaci. Změny se pak na stránce projeví okamžitě bez refreshe.**
 
 Proč je to tak převratné? **Ohromně to zrychluje a zpříjemňuje vývoj**. Refresh je nejen pomalý ale hlavně se při něm ztrácí stav aplikace. Například rozepsaný formulář nebo posloupnost kroků, kterou jste se dostali do nějaké skryté části aplikace (nedostupné přes URL).
 
-Jak tahle magie funguje? Webpack-dev-server si pomocí socketů povídá s webpack runtime (přiložený bundle k hlavnímu skriptu stránky) a oznámí mu, když uložíte (aktualizujete) nějaký soubor. **Webpack runtime se pak zeptá původního starého modulu, jestli umí zpracovat aktualizaci**, pokud ne, tak jde tato výzva stromem závislostí výše. Pokud se nenajde nikdo, kdo by aktualizaci dokázal provést, tak se udělá klasický refresh. Musíme psát ke každému modulu potenciálně velmi komplikovanou accept metodu?
+Jak tahle magie funguje? Webpack-dev-server si pomocí socketů povídá s webpack runtime (přiložený bundle k hlavnímu skriptu stránky) a oznámí mu, když uložíte (aktualizujete) nějaký soubor. **Webpack runtime se pak zeptá původního starého modulu, jestli umí zpracovat aktualizaci**, pokud ne, tak jde tato výzva stromem závislostí výše. Pokud se nenajde nikdo, kdo by aktualizaci dokázal provést, tak vám webpack v konzoli suše oznámí, že je potřeba udělat klasický refresh. Musíme psát ke každému modulu potenciálně velmi komplikovanou accept metodu?
 
-<p class="pic-container" style="max-width:334px">
-  <img src="pics/hotreload.png" class="pic" title="Hot reload pro React" />
-</p>
-
-To by nikdo nedělal. **Naštěstí pro React komponenty je to možné vcelku snadno generalizovat**. Mají totiž jasně daný life-cycle a rerendrování části DOMu bez ztráty state je jejich základní vlastností. A tak vzniknul [react-hot-loader](http://gaearon.github.io/react-hot-loader/). Pro UI část je hot reload nejvíce užitečný, jelikož právě ji nejčastěji testujeme a právě ona obsahuje stav. Nicméně při jistých konvencích se dá celý flux reimplementovat tak, aby bylo možné hot reload použít pro celou aplikaci, jak ukazuje [redux](https://github.com/gaearon/redux). Taková aplikace je pak shodou okolností i velmi dobře testovatelná.
-
-Dnes představuje hot reload černou magii, která funguje, ale jde z ní respekt. Dovedu si však představit, že **příští rok, už budeme knihovny dělit na ty, které hot reload podporují a ty které nikoliv**. Hackování v JS bude ještě víc zábavné než dnes!
+Ano i ne. **U React komponent je potřeba vždy přerenderovat celý strom**. Obecným dobrým trendem je udržovat stav aplikace mimo React komponenty (Redux) a tudíž tento postup funguje. Komponenty sice vždycky kompletně přerenderujeme, ale jelikož v nich není žádný stav, na stránce se vlastně nic nezmění (neztratí). Ovšem ne každý používá striktně Redux a tak vzniklo magické řešení plné hacků aka React Hot Loader, které se snaží stav v komponentách během přerenderování udržet, což ne vždy funguje. Pokud vás zajímá více detailů, přečtěte si [výborný článek](https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.90dg96b0m) od autora React Hot Loaderu Dana Abramova. **TLDR;** pokud budete používat Redux, tak žádné hacky vůbec nepotřebujete, jinak si počkejte na RHL v3, který je sice pořád komplexní, ale už ne tolik magický a více funkční.
 
 ##Struktura aplikace
 
 ```
-dev-stack/                 ← hlavní adresář
-  ├── build/               ← produkční (vybuildněná) verze
-  ├── node_modules/        ← NPM balíčky (závislosti projektu)
-  ├── src/                 ← zdrojové kódy
-  │   ├── client/          ← front-end (FE) / prohlížečová část
-  │   │   └── hello.gif    ← velký obrázek (>8kB)
-  │   │   └── icon.png     ← malý obrázek (<8kB)
-  │   │   └── index.js     ← hlavní (vstupní) soubor FE části
-  │   │   └── main.js      ← hlavní root React komponenta
-  │   │   └── main.less    ← CSS styly pro hlavní komponentu
-  │   ├── server/          ← serverová část (node.js)
-  │   │   └── config.js    ← konstanty a konfigurace
-  │   │   └── html.js      ← komponenta se strukturou HTML stránky
-  │   │   └── index.js     ← hlavní (vstupní) soubor serveru
-  │   │   └── main.js      ← HTTP server
-  ├── webpack/             ← nastavení webpacku
-  │   └── build.js         ← build produkční verze
-  │   └── devserver.js     ← webpack-dev-server pro vývoj
-  │   └── makeconfig.js    ← společná hlavní konfigurace
-  │   └── notifyplugin.js  ← šikovný nástroj pro notifikace OS
-  ├── gulpfile.js          ← konfigurace Gulpu
-  └── package.json         ← rodokomnen aplikace, závislosti atd.
+devstack/                        ← hlavní adresář
+  ├── build/                     ← produkční (vybuildněná) verze
+  ├── node_modules/              ← NPM balíčky (závislosti projektu)
+  ├── src/                       ← zdrojové kódy
+  │   ├── client/                ← front-end (FE) / prohlížečová část
+  │   │   └── hello.gif          ← velký obrázek (>10kB)
+  │   │   └── icon.png           ← malý obrázek (<10kB)
+  │   │   └── index.js           ← hlavní (vstupní) soubor FE části
+  │   │   └── main.js            ← hlavní root React komponenta
+  │   │   └── main.less          ← CSS styly pro hlavní komponentu
+  │   ├── server/                ← serverová část (node.js)
+  │   │   └── html.js            ← komponenta se strukturou HTML stránky
+  │   │   └── index.js           ← babel require hook
+  │   │   └── main.js            ← HTTP (express) server
+  ├── webpack/                   ← nastavení webpacku
+  │   └── config.dev.babel.js    ← webpack konfig pro vývojový režim
+  │   └── config.prod.babel.js   ← webpack konfig pro produkční verzi
+  │   └── constants.js           ← konstanty, cesty
+  │   └── index.js               ← babel require hook
+  │   └── server.dev.js          ← vývojový server webpacku
+  ├── .babelrc                   ← konfigurace babelu (pro server)
+  ├── .eslintrc                  ← konfigurace eslintu
+  ├── .gitignore                 ← soubory ignorované gitem
+  ├── .travis.yml                ← nastavení CI
+  ├── LICENSE                    ← licence
+  ├── README.md                  ← základní info (v angličtině)
+  └── package.json               ← rodokomnen aplikace, závislosti atd.
 ```
 
 Obsah souboru `package.json`:
 
 ```
 {
-  "name": "prvni-dev-stack",
-  "description": "Zakladni a jednoduchy dev-stack pro moderni JS aplikaci",
-  "author": "Vojtech Miksu",
-  "version": "0.0.1",
+  "name": "devstack",
+  "description": "Simple devstack for modern JS apps",
+  "author": "Vojtech Miksu <vojtech@miksu.cz>",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node src/server"
+    "clean": "rm -rf build",
+    "start": "node webpack/index | NODE_ENV=development node src/server",
+    "build": "npm run clean && NODE_ENV=production webpack --config webpack/config.prod.babel.js",
+    "server": "NODE_ENV=production node src/server",
+    "lint": "eslint src webpack || true"
   },
   "dependencies": {
-    "autoprefixer-loader": "^2.0.0",
-    "babel": "^5.0.8",
-    "babel-core": "^5.6.5",
-    "babel-eslint": "^3.0.1",
-    "babel-loader": "^5.0.0",
-    "compression": "^1.4.0",
-    "css-loader": "^0.15.1",
-    "eslint": "^0.23.0",
-    "eslint-plugin-react": "^2.0.1",
-    "express": "^4.11.2",
-    "extract-text-webpack-plugin": "^0.8.0",
-    "file-loader": "^0.8.4",
-    "gulp": "^3.8.10",
-    "gulp-bg": "0.0.5",
-    "gulp-eslint": "^0.14.0",
-    "gulp-util": "^3.0.2",
+    "babel-core": "^6.8.0",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.8.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-node6": "^11.0.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.8.0",
+    "babel-runtime": "^6.6.1",
+    "compression": "^1.6.1",
+    "css-loader": "^0.23.0",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-jsx-a11y": "^1.2.0",
+    "eslint-plugin-react": "^5.1.1",
+    "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.1",
+    "ip": "^1.1.3",
     "less": "^2.5.1",
     "less-loader": "^2.0.0",
-    "node-libs-browser": "^0.5.2",
-    "node-notifier": "^4.1.0",
-    "react": "^0.13.1",
-    "react-hot-loader": "^1.1.4",
-    "style-loader": "^0.12.0",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "style-loader": "^0.13.1",
     "url-loader": "^0.5.5",
-    "webpack": "^1.9.5",
-    "webpack-dev-server": "^1.7.0",
-    "yargs": "^3.12.0"
+    "webpack": "^1.12.14",
+    "webpack-dev-middleware": "^1.6.0",
+    "webpack-hot-middleware": "^2.10.0"
   }
 }
 ```
@@ -156,95 +162,75 @@ I přesto, že **naše aplikace a veškerá její logika může kompletně běž
 
 Jelikož se tato série soustředí především na tu prohlížečovou část, tak se samotným nodem moc zabývat prozatím nebudeme. Ostatně existuje už i [český node.js seriál](http://www.zdrojak.cz/clanky/javascript-na-serveru-zaciname-s-node-js/), i když už trochu zastaralý.
 
-Hlavní soubor `index.js` vypadá takto:
+Hlavní soubor serveru `index.js` vypadá takto:
 
 ```js
 require('babel/register');
 require('./main');
 ```
-Pokud chceme používat Babel v prohlížeči, musíme nejdříve náš kód prohnat Babel kompilátorem a prohlížeči poslat až výsledný JavaScript. V prostředí node.js můžeme udělat to samé. Nicméně díky tomu, že nemusíme řešit spojování modulů, minimalizaci a prohlížeče, tak existují i další možnosti. Například **lze místo node používat [babel-node](https://babeljs.io/docs/usage/cli/#babel-node)**. Pro spuštění serveru pak použijete příkaz `babel-node index` místo `node index`. Další a **elegantní možností je výše použitý [require hook](https://babeljs.io/docs/usage/require/) `require('babel/register')`**. Babel se nabinduje na nodí require a bude kompilovat soubory za běhu (počínaje `./main.js`).
+Pokud chceme používat Babel v prohlížeči, musíme nejdříve náš kód prohnat Babel kompilátorem a prohlížeči poslat až výsledný JavaScript. V prostředí node.js můžeme udělat to samé. Nicméně díky tomu, že nemusíme řešit spojování modulů, minimalizaci a prohlížeče, tak existují i další možnosti. Například **lze místo node používat [babel-node](https://babeljs.io/docs/usage/cli/#babel-node)**. Pro spuštění serveru pak použijete příkaz `babel-node index` místo `node index`. Další a **elegantní možností je výše použitý [require hook](https://babeljs.io/docs/usage/require/) `require('babel/register')`**. Babel se nabinduje na nodí require a bude kompilovat soubory za běhu (počínaje `./main.js`). Šestá verze node.js je už téměř plně kompatibilní s ES2015. Bohužel pořád chybí podpora ES2015 modulů a tak je stále Babel ještě potřeba. Nimcéně stačí použít minimalistický `babel-preset-node6`. Pokud chcete použít starší verzi Node, je potřeba příslušný preset, který doplňuje více chybějících funkcí.
 
 Soubor `main.js` je už zajímavější:
 
 ```js
+
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import express from 'express';
 import compression from 'compression';
-import config from './config';
 import Html from './html';
 
 const app = express();
+const port = process.env.PORT || 8000;
 
 app.use(compression());
 app.use('/build', express.static('build'));
 
 app.get('*', (req, res) => {
-  res.send('<!DOCTYPE html>' + React.renderToStaticMarkup(
-    <Html
-      isProduction={config.isProduction}
-      version={config.version}
-    />
-  ));
+  res.send(`<!DOCTYPE html>${ReactDOMServer.renderToStaticMarkup(<Html />)}`);
 });
 
-app.listen(config.port);
-console.log(`Server started on port ${config.port}`);
+app.listen(port);
+console.log(`Server started on port ${port}`); // eslint-disable-line
 ```
 
 **Představuje totiž celý server**. Nepotřebujeme už Apache či Nginx, protože node umí obstarat HTTP komunikaci sám. Express je nejpoužívanější node framework, se kterým je hračka napsat například jakékoliv API.
 
-**Nám stačí pouze jedno pravidlo**. V metodě `app.get` říkáme, že na jakoukoliv adresu nám má server poslat daný řetězec, který reprezentuje naší prázdnou HTML stránku. Tedy krom adresáře `/build`, ve kterém budeme mít naše bundly či obrázky.
+**Nám stačí pouze jedno pravidlo**. V metodě `app.get` říkáme, že na jakoukoliv adresu nám má server poslat daný řetězec, který reprezentuje naší prázdnou HTML stránku. Tedy krom adresáře `/build`, ve kterém budeme mít naše JS/CSS bundly či obrázky.
 
-Trošku jsem v úvodu lhal o té jediné React komponentě. Tady je totiž druhá s názvem `Html`. **`React.renderToStaticMarkup` vrátí DOM v podobě prostého řetězce**. Existuje ještě metoda `React.renderToString`, která vrací to samé, avšak každý element dostane ještě speciální atribut `data-reactid`. **To se hodí pro server-side rendering**. Po té co se takováto komponenta vykreslí v prohlížeči, React už bude mít díky idčkům kompletní přehled o struktuře DOMu a může se na ní ihned napojit. To však pro elementy jako `<head>` či `<body>` nepotřebujeme, jelikož na ty React už nikdy šahat nebude.
-
-Než přejdeme na rozbor naší první reactí komponenty, mrkněme na `config.js`:
-
-```js
-export default {
-  isProduction: process.env.NODE_ENV === 'production',
-  port: process.env.PORT || 8000,
-  version: require('../../package').version
-};
-```
-
-**Režim vyčteme z globální proměnné process.env.NODE_ENV**, jak už je u nodu zvykem. Obdobně můžeme v prostředí nastavit i PORT, jinak se použije `8000`. Také se nám hodí `version`, který si můžeme vyzobnout z našeho vlastního `package.json`. Následně ho totiž přilepíme k `build/bundle.js?v=version`, abychom si s každou novou verzí vynutili invalidování prohlížečové cache. Obdobně pro CSS.
+Trošku jsem v úvodu lhal o té jediné React komponentě. Tady je totiž druhá s názvem `Html`. **`ReactDOMServer.renderToStaticMarkup` vrátí DOM v podobě prostého řetězce**.
 
 Poslední dílek skládanky je samotná struktura stránky v Reactu `html.js`:
 
 ```js
 import React from 'react';
+import path from 'path';
+import fs from 'fs';
 
-export default class Html extends React.Component {
+const isProduction = process.env.NODE_ENV === 'production';
+const buildDir = isProduction ? fs.readdirSync(path.resolve(__dirname, '../../build')) : '';
+const appJS = isProduction ? buildDir.find(file => /^app\-\w+\.js$/.test(file)) : '';
+const appCSS = isProduction ? buildDir.find(file => /^app\-\w+\.css$/.test(file)) : '';
+const scripts = isProduction ? `/build/${appJS}` : '//localhost:8080/build/app.js';
 
-  render() {
-    const {isProduction, version} = this.props;
-    const appSrc = isProduction ? `/build/app.js?v=${version}`
-                                : '//localhost:8888/build/app.js';
-    return (
-      <html>
-        <head>
-          <meta charSet="utf-8" />
-          <title>Prvni dev-stack</title>
-          {isProduction &&
-            <link href={`/build/app.css?v=${version}`} rel="stylesheet"/>}
-        </head>
-        <body>
-          <div id="app-root" />
-          <script src={appSrc} type="text/javascript"/>
-        </body>
-      </html>
-    );
-  }
-
-}
-
-Html.propTypes = {
-  isProduction: React.PropTypes.bool.isRequired,
-  version: React.PropTypes.string.isRequired
-};
+export default () => <html>
+  <head>
+    <meta charSet="utf-8" />
+    <title>First dev-stack</title>
+    {isProduction && <link href={`/build/${appCSS}`} rel="stylesheet" />}
+  </head>
+  <body>
+    <div id="app-root" />
+    <script src={scripts} type="text/javascript" />
+  </body>
+</html>;
 ```
 
-**React si více popíšeme až v dalším článku**. Zde jen uvedu, že ve vývojovém režimu nevkládáme CSS soubor pomocí `<link>`, ale děje se tak javascriptovou cestou, aby nám mj. fungoval hot reload. Zbytek je ona prázdná HTML struktura, vložení naší budoucí JS aplikace a také prázdný `div` s `id="app-root"`, do kterého v prohlížeči vyrendrujeme naši Reactí aplikaci. **Nikdy jí nerendrujte přímo do `body` elementu, jelikož do něj rádi svévolně šahají i různé další knihovny, což pak způsobuje Reactu značný bolehlav**.
+**React si více popíšeme až v dalším článku**. Zde jen uvedu, že musíme rozlišovat mezi vývojovým a produkčním režimem. Ve vývojovém nevkládáme CSS soubor pomocí `<link>`, ale děje se tak javascriptovou cestou, aby nám mj. fungoval hot reload pro styly. JavaScript se pak načítá z webpack serveru a adresy `localhost:8080/build/app.js`.
+
+V produkčním režimu se pak klasicky servíruje CSS i JS ze stejného serveru, adresáře `build`. Název souborů se náhodně mění s každým buildem kvůli cacheování. Musíme tedy nejdříve prohledat adresář `build` a soubory najít.
+
+Zbytek je jen prázdná HTML struktura (React komponenta definovaná jako funkce) a `div` s `id="app-root"`, do kterého v prohlížeči vyrendrujeme naši React aplikaci. **Nikdy jí nerendrujte přímo do `body` elementu, jelikož do něj rádi svévolně šahají i různé další knihovny, což pak způsobuje Reactu značný bolehlav**.
 
 Server si nyní můžete pustit příkazem:
 
@@ -258,6 +244,12 @@ V produkčním režimu pak jako:
 NODE_ENV=production node index
 ```
 
+Případně v `package.json` máme script (alias), který lze spustit jako:
+
+```
+npm run server
+```
+
 Nyní si otevřte Chrome a mrkněte na `http://localhost:8000`. Měli byste tam nalézt velké bíle nic - právě to jsme si totiž zatím vytvořili. Zda jde o dobré nic, zkontrolujte nahlédnutím do zdrojového kódu stránky.
 
 ##Front-end
@@ -266,39 +258,42 @@ Naše dnešní aplikace bude triviální. Vytvoříme si jedinou React komponent
 
 ```js
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Main from './main';
 
-const app = document.getElementById('app-root');
-React.render(<Main />, app);
+const rootEl = document.getElementById('app-root');
+ReactDOM.render(<Main />, rootEl);
+
+if (module.hot) {
+  module.hot.accept('./main', () => {
+    const NextApp = require('./main').default; // eslint-disable-line
+    ReactDOM.render(<NextApp />, rootEl);
+  });
+}
 ```
 
-V DOMu si vylovíme div, do kterého pak vyrendrujeme naši jedinou hlavní komponentu `Main`. Děsí vás ty špičaté závorky? Říkáte si, že to není validní JS syntax? Ano, není. **Nicméně Babel dané syntaxi rozumí (JSX) a překládá jí do normálních JS funkcí**. Jediné co musíte pro použití JSX udělat je import Reactu. O JSX bude také článek později.
+V DOMu si vylovíme div, do kterého pak vyrendrujeme naši jedinou hlavní komponentu `Main`. Děsí vás ty špičaté závorky? Říkáte si, že to není validní JS syntax? Ano, není. **Nicméně Babel dané syntaxi rozumí (JSX) a překládá jí do normálních JS funkcí**. Jediné co musíte pro použití JSX udělat je import Reactu.
+
+Část s `module.hot` je pro účely vývojového režimu. Říkáme zde webpacku, že umíme přijmout změny (hot reload), pokud se něco změní v souboru `./main` či jeho potomcích. Pokud se něco změní, jednoduše znova vyrendrujeme celou aplikaci.
 
 Samotná `Main` komponenta není o moc složitější:
 
 ```js
 import React from 'react';
-import './main.less';
 import imgHello from './hello.gif';
 import imgIcon from './icon.png';
+import './main.less';
 
-export default class Main extends React.Component {
-
-  render() {
-    return (
-      <div className="hello">
-        Hello world!
-        <img src={imgHello} width="300px"/>
-        <img src={imgIcon} />
-      </div>
-    );
-  }
-}
+export default () => <div className="hello">
+  Hello world!
+  <img src={imgHello} width="300px" alt="hello world" />
+  <img src={imgIcon} role="presentation" />
+</div>;
 ```
 
 Povšimněte si, že kromě povinného Reactu **importujeme i soubor s LESS** (stylopis pro naši komponentu s className hello) **a dokonce i obrázky**. Potřeba minimalizace a mazání nepoužívaných CSS je asi všem jasná. **Proč se ale zaobírat obrázky, když ty se nahrávají asynchronně a jen když jsou potřeba i bez nějakého webpacku?**
 
-- Obrázky menší než např. 8kB můžeme automaticky **enkódovat do base64** a vložit přímo do HTML. Tím ušetříme zbytečný HTTP request.
+- Obrázky menší než např. 10kB můžeme automaticky **enkódovat do base64** a vložit přímo do HTML. Tím ušetříme zbytečný HTTP request.
 - **Pojmenování**. Webpack obrázky přejmenuje na jejich hash a přesune do společného `/build` adresáře. Prohlížeč je tak může cacheovat "navždy", pokud se změní, tak se změní i jejich název.
 - **Lepší struktura a opravdová modularita**. Obrázky totiž můžeme mít přímo u jednotlivých komponent, aniž bychom veřejně odhalovali strukturu naší aplikace. Stejně jako styly a vše ostatní.
 
@@ -317,452 +312,213 @@ Pro úplnou přehlednost ještě uvedu obsah souboru `main.less`:
 }
 ```
 
-##Nastavení Gulpu
+##NPM scripts
 
-**Už jsme hotoví s dnešní aplikací (serverem i front-endem)**. Zbývá však ještě konfigurace a uvedení k životu. Proč máme v projektu Gulp i Webpack zároveň? Je pravda, že Webpack do velké míry dokáže spousty činností Gulpu nahradit a s trochou skriptování v `package.json` bychom se Gulpu dokázali zbavit úplně. Nicméně bude se nám hodit pro samotné spouštění Webpacku a také ESLintu. ESLint má sice také vlastní loader pro webpack, ale v našem nastavení webpacku budeme potlačovat většinu (výstupů) errorů, aby se nám nerozbíjel (nepřerušoval) hot reloading. Bohužel s tím bychom přišli i o výstup ESLintu.
-
-Základem konfigurace Gulpu je `gulpfile.js`:
-
-```js
-/* eslint-env node */
-'use strict';
-
-var bg = require('gulp-bg');
-var eslint = require('gulp-eslint');
-var gulp = require('gulp');
-var makeWebpackConfig = require('./webpack/makeconfig');
-var webpackBuild = require('./webpack/build');
-var webpackDevServer = require('./webpack/devserver');
-var yargs = require('yargs');
-
-var args = yargs
-  .alias('p', 'production')
-  .argv;
-
-gulp.task('env', function() {
-  process.env.NODE_ENV = args.production ? 'production' : 'development';
-});
-
-gulp.task('build-webpack-production', webpackBuild(makeWebpackConfig(false)));
-gulp.task('build-webpack-dev', webpackDevServer(makeWebpackConfig(true)));
-
-gulp.task('eslint', function() {
-  return gulp.src([
-    'gulpfile.js',
-    'src/**/*.js',
-    'webpack/*.js'
-  ])
-  .pipe(eslint())
-  .pipe(eslint.format())
-  .pipe(eslint.failOnError());
-});
-
-gulp.task('server',
-  ['env', args.production ? 'build-webpack-production' : 'build-webpack-dev'],
-  bg('node', 'src/server')
-);
-gulp.task('default', ['server']);
-```
-
-Musíme specifikovat jednotlivé tasky:
-
-- **env:** nastaví prostředí na vývojový či produkční režim
-- **build-webpack-production:** spustí produkční webpack (build)
-- **build-webpack-dev:** spustí webpack-dev-server pro vývojový režim
-- **eslint:** zkontroluje všechny naše soubory ESLintem, včetně webpack konfigurací a i gulpfilu, [pravidla ESLintu](http://eslint.org/docs/rules/) si můžete nastavit přidáním souboru `.eslintrc`
-- **server:** spustí task env a pak jeden z buildu dle parametru z příkazové řádky, na pozadí nám pak ještě spustí náš server, který jsme si výše napsali
-- **default:** hlavní task
-
-Vývojový režim pak pustíme pomocí:
+V `package.json` si zadefinujeme jednoduché skripty pomocí kterých budeme spouštět build, linter a vývojový režim. Nejdříve ale ještě musíme doplnit webpack konfiguraci, než budou skripty níže funkční.
 
 ```
-gulp
+"clean": "rm -rf build",
+"start": "node webpack/index | NODE_ENV=development node src/server",
+"build": "npm run clean && NODE_ENV=production webpack --config webpack/config.prod.babel.js",
+"server": "NODE_ENV=production node src/server",
+"lint": "eslint src webpack || true"
 ```
 
-Produkční aplikaci (vybuildení) pro reálné nasazení spustíme tímto:
+Vývojový režim spustíme pomocí příkazů:
 
 ```
-gulp -p
+npm start
+open http://localhost:8000
 ```
 
-ESLint pak zapneme příkazem:
+Aplikaci vybuildíme a spustíme takto:
 
 ```
-gulp eslint
+npm run build
+npm run server
+open http://localhost:8000
+```
+
+Linter:
+
+```
+npm run lint
 ```
 
 Je už na vás, kdy budete linter spouštět v rámci vašeho procesu. Doporučuji si lintování také nainstalovat do vašeho textového editoru, abyste o chybách věděli ihned a gulp task mít jen jako takovou pojistku. Podporovány jsou [všechny běžné editory](http://eslint.org/docs/user-guide/integrations).
 
-##Nastavení Webpacku
+##Nastavení Webpacku (vývojový režim)
 
-To nejlepší nakonec. **Dnešní pohádku završíme nastavením Webpacku, který naší aplikaci vdechne život**. Webpack očekává, že mu prvním parametrem předáme konfiguraci. Tu naši si sestavíme v souboru `makeconfig.js`. Asi jste všimli, že tu dnes trochu míchám ES5 a ES6 (Babel). Pro konfiguraci samotných build nástrojů je jednodušší použít čistý (starý) JS. Navíc ES5 je subset ES6 (Babelu), takže si stejně musíte zvyknout na obě syntaxe. Samotné zdrojové kódy budou téměř vždy jen v Babelu, občas uvedu (formou záložky) i starší zápis.
+To nejlepší nakonec. **Dnešní příběh završíme nastavením Webpacku, který naší aplikaci vdechne život**. Vývojový režim se zapíná pomocí `npm start` alias `node webpack/index | NODE_ENV=development node src/server`. Tímto se zároveň spustí webpack dev server (ukážeme si níže) a také náš hlavní server (viz výše).
 
-Konfiguraci si obalíme do funkce, které předáme to, zda chceme verzi pro produkci či vývoj:
+Webpack dev server nám bude průběžně servírovat JavaScript a styly pomocí websocketů a hot reloadingu. `webpack/index` je opět pouze babel require hook abychom měli plnou podporu ES2015:
 
-```js
-module.exports = function(isDevelopment) {
-  // ...
-}
+```
+require('babel-register');
+require('./server.dev');
 ```
 
-Konfigurace je jeden velký objekt:
+Samotný webpack dev server je v `server.dev.js`:
 
-```js
-var config = {
-  cache: isDevelopment,
-  debug: isDevelopment,
-  devtool: isDevelopment ? 'eval-source-map' : '',
-  // ...
-}
+```
+import express from 'express';
+import webpack from 'webpack';
+import webpackDev from 'webpack-dev-middleware';
+import webpackHot from 'webpack-hot-middleware';
+import configDev from './config.dev.babel';
+
+const app = express();
+const compiler = webpack(configDev);
+
+app.use(webpackDev(compiler, {
+  publicPath: configDev.output.publicPath,
+}));
+
+app.use(webpackHot(compiler));
+
+app.listen(configDev.hotPort, () => {
+  console.log('Dev server started at port %d', configDev.hotPort); // eslint-disable-line
+});
 ```
 
-Webpack agresivně [cacheuje](http://webpack.github.io/docs/configuration.html#cache) jednotlivé moduly a chunky, což výrazně zlepšuje rychlost inkrementálních buildů. To se nám samozřejmě velmi hodi pro vývoj. [Debug](http://webpack.github.io/docs/configuration.html#debug) nám nastaví loadery do debug režimu. [Devtool](http://webpack.github.io/docs/configuration.html#devtool) nám nabízí různé možnosti pro nastavení source-map.
+Opět použijeme express. Webpack dev server s hot reloading přidáme jako middleware našeho express serveru. Webpack pak příjímá prvním parametrem konfiguraci, což je jeden velký JS object. V našem případě jde o vývojový konfig `config.dev.babel.js`:
 
-Dále musíme uvést vstupní bod naší aplikace:
-
-```js
-var config = {
-  // ...
-  entry: isDevelopment ?
-    [
-      'webpack-dev-server/client?http://localhost:8888',
-      'webpack/hot/only-dev-server',
-      './src/client/index.js'
-    ] : [
-      './src/client/index.js'
-    ],
-  // ...
-}
 ```
+import webpack from 'webpack';
+import path from 'path';
+import ip from 'ip';
+import { HOT_RELOAD_PORT, SRC_DIR, BUILD_DIR } from './constants';
 
-V případě vývojového režimu musíme krom `src/client/index.js` uvést i webpack-dev-server, tak aby nám fungoval hot-reload.
-
-Následně musíme specifikovat loadery pro jednotlivé typy importovaných souborů. Lze si je představit jako pipes z bashe. Dostanou obsah souboru, provedou nějakou transformaci a pošlou ji na výstup. **Ovšem pozor, zpracovávají se zprava do leva**.
-
-```js
-var config = {
-  // ...
+export default {
+  hotPort: HOT_RELOAD_PORT,
+  cache: true,
+  debug: true,
+  devtool: 'source-map',
+  entry: { app: [
+    `webpack-hot-middleware/client?path=http://${ip.address()}:${HOT_RELOAD_PORT}/__webpack_hmr`,
+    path.join(SRC_DIR, 'client/index.js'),
+  ] },
   module: {
     loaders: [{
-      loader: 'url-loader?limit=8192',
-      test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/
+      loader: 'url-loader?limit=10000',
+      test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg|wav)$/,
     }, {
-      loaders: isDevelopment ? [
-        'react-hot', 'babel-loader'
-      ] : [
-        'babel-loader'
-      ],
+      test: /\.js$/,
       exclude: /node_modules/,
-      test: /\.js$/
-    },
-    {
-      loader: isDevelopment ?
-        'style-loader!' + lessLoaders
-        : ExtractTextPlugin.extract('style-loader', lessLoaders),
-      test: /\.(less)$/
-    }]
+      loader: 'babel',
+      query: {
+        plugins: ['transform-runtime'],
+        presets: ['es2015', 'react'],
+      },
+    }, {
+      test: /\.less$/,
+      loader: 'style-loader!css-loader!less-loader',
+    }],
   },
-  // ...
-}
-```
-
-`Loaders` nebo `loader` specifikuje, který loader pro dané pravidlo použít. `Test` je regexp, který určí z názvu importu (typicky přípony), zda se má daný loader použít. Pomocí `exclude` je pak možné vyloučit některé importy, což se hodí pro `/node_modules`.
-
-**První loader nám zpracovává obrázky**. Pokud jsou menší než 8kB, tak je převede do base64. Vrátí pak URL adresu obrázku. **Druhý loader se aplikuje na všechny JavaScriptové soubory**. Prožene je babel transformací. Ve vývojovém režimu navíc ještě react hot loaderem, který nám přidá accept metody k React komponentám.
-
-**Poslední loader pak zpracovává LESS importy**. `lessLoaders` je zkratkou pro:
-
-```js
-css-loader!autoprefixer-loader?browsers=last 2 version!less-loader
-```
-
-Nejdříve projde LESS import LESS transformací, následně autoprefixer-loaderem, který nám přidá prefixy nutné pro poslední 2 verze prohlížečů. `Css-loader` pak vyřeší importy `url(...)`. A nakonec `style-loader`, který nám styly vloží do DOMu.
-
-V produkčním režimu aplikujeme na výsledek ještě **`ExtractTextPlugin`, který nám ze všech jednotlivých stylů vytvoří samostatný CSS soubor**. V opačném případě jsou naše styly přímo inlinovány javascriptem, což může být pomalé a problematické u starších prohlížečů. Ovšem pro vývoj je to naopak fajn, bude nám fungovat hot-reload.
-
-Webpack nyní ví co zpracovávat a pomocí jakých loaderů (transformací). **Nyní mu ještě zbývá říct, jak má vypadat výstup**:
-
-```js
-var config = {
-  // ...
-  output: isDevelopment ? {
-    path: path.join(__dirname, '/build/'),
-    filename: 'app.js',
-    publicPath: 'http://localhost:8888/build/'
-  } : {
-    path: 'build/',
-    filename: 'app.js',
-    publicPath: 'build/'
+  output: {
+    path: BUILD_DIR,
+    filename: '[name].js',
+    chunkFilename: '[name]-[chunkhash].js',
+    publicPath: `http://${ip.address()}:${HOT_RELOAD_PORT}/build/`,
   },
-  // ...
-}
-```
-
-**Naše aplikace je jednoduchá a proto nám stačí jeden výstupní společný bundle**. Ten se uloží do adresáře `/build`. Krom `app.js` se nám tam pak objeví i obrázky a CSS bundle `app.css`. Ve vývojovém režimu nám skripty a styly bude servírovat přímo webpack-dev-server, který poběží na `http://localhost:8888/`.
-
-Dále můžeme ještě v konfiguraci specifikovat **pluginy, které dělají další úpravy a optimalizace společné pro všechny moduly**:
-
-```js
-var config = {
-  // ...
-  plugins: (function() {
-    var plugins = [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV':
-          JSON.stringify(isDevelopment ? 'development' : 'production')
-      })
-    ];
-    if (isDevelopment)
-      plugins.push(
-        NotifyPlugin,
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-      );
-    else
-      plugins.push(
-        new ExtractTextPlugin('app.css', {allChunks: true}),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}})
-      );
-    return plugins;
-  })()
-  // ...
-}
-```
-
-V prohlížeči nemáme dostupnou proměnnou `process.env.NODE_ENV` a přesto by se nám tam občas hodilo rozlišit v jakém jsme módu. Není nic jednoduššího, než si jí **hromadně nahradit webpackem**.
-
-Ve vývojovém módu pak musíme aplikovat `webpack.HotModuleReplacementPlugin`, aby nám fungoval hot-reload. `webpack.NoErrorsPlugin` pak bude ignorovat případné chyby v kódu, tak aby se nám nevypnul hot-reload. Po opravení chyby se daný kód znova hot-reloadne. `NotifyPlugin` je šikovná utilitka, která nám bude oznamovat errory v notifikačním centru našeho operačního systému. Podporuje Mac, Windows i Linux. `notifyplugin.js` obsahuje:
-
-```js
-'use strict';
-
-var notifier = require('node-notifier');
-var path = require('path');
-
-function getLocMessage(error, loc) {
-  var filePath = error.module.resource.split(path.sep);
-  return [
-    filePath[filePath.length - 1],
-    ' at [',
-    loc.line,
-    ',',
-    loc.column,
-    ']'
-  ].join('');
-}
-
-module.exports = function() {
-  this.plugin('done', function(stats) {
-    // TODO: Handle warnings as well.
-    var error = stats.compilation.errors[0];
-    if (!error) return;
-    var loc = error.error.loc;
-    var msg;
-    if (loc)
-      msg = getLocMessage(error, loc);
-    else if (error.message)
-      msg = error.message;
-    else
-      return;
-
-    notifier.notify({
-      title: 'Webpack Error',
-      message: msg
-    });
-  });
+  plugins: [
+    new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('development') } }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+  ],
+  resolve: {
+    extensions: ['', '.js', '.json'],
+    modulesDirectories: ['src', 'node_modules'],
+  },
 };
 ```
 
-V produkčním módu musíme specifikovat **kam uložit poslepované CSS styly** pomocí `ExtractTextPlugin`. `webpack.optimize.DedupePlugin` zkusí najít stejné či podobné soubory a vyhodit je z výsledného výstupu, tak aby se zmenšila celková velikost bundlu. `webpack.optimize.OccurenceOrderPlugin` je další optimalizace, která zmenší výsledný bundle. Nakonec ještě použijeme `UglifyJsPlugin`. Ten významně minimalizuje JavaScriptový kód a provede další optimalizace (trvá to).
+Ten se skládá z několika částí. Webpack agresivně [cacheuje](http://webpack.github.io/docs/configuration.html#cache) jednotlivé moduly a chunky, což výrazně zlepšuje rychlost inkrementálních buildů. To se nám samozřejmě velmi hodí pro vývoj. [Debug](http://webpack.github.io/docs/configuration.html#debug) nám nastaví loadery do debug režimu. [Devtool](http://webpack.github.io/docs/configuration.html#devtool) nám nabízí možnost generovat source mapy.
+
+Dale musíme přidat `entry`, kde specifikujeme vstupní soubory naší aplikace aneb místo, kde webpack začne rozmotávat všechny závislosti.
+
+Následně musíme zaregistrovat loadery pro jednotlivé typy importovaných souborů. Lze si je představit jako pipes z bashe. Dostanou obsah souboru, provedou nějakou transformaci a pošlou ji na výstup. **Ovšem pozor, zpracovávají se zprava do leva**. `Loaders` nebo `loader` specifikuje, který loader pro dané pravidlo použít. `Test` je regexp, který určí z názvu importu (typicky přípony), zda se má daný loader použít. Pomocí `exclude` je pak možné vyloučit některé importy, což se hodí pro `/node_modules`.
+
+**První loader nám zpracovává obrázky**. Pokud jsou menší než 10kB, tak je převede do base64. Vrátí pak URL adresu obrázku. **Druhý loader se aplikuje na všechny JavaScriptové soubory**. Prožene je babel transformací. **Poslední loader pak zpracovává LESS importy**.
+
+Webpack nyní ví co zpracovávat a pomocí jakých loaderů (transformací). **Nyní mu ještě zbývá říct, jak má vypadat výstup** v direktivě `output`. **Naše aplikace je jednoduchá a proto nám stačí jeden výstupní společný bundle**. Skripty a styly nám bude servírovat přímo webpack-dev-server, který poběží na adrese v `publicPath`.
+
+Dále můžeme ještě v konfiguraci specifikovat **pluginy, které dělají další úpravy a optimalizace společné pro všechny moduly**. V prohlížeči nemáme dostupnou proměnnou `process.env.NODE_ENV` a přesto by se nám tam občas hodilo rozlišit v jakém jsme módu. Není nic jednoduššího, než si jí **hromadně nahradit webpackem**. Aby nám fungoval hot-reload, musíme aplikovat `webpack.HotModuleReplacementPlugin`.
 
 Nakonec ještě řekneme webpacku, které defaultní přípony (typy souborů) má umět importovat i bez toho aniž bychom uvedli koncovku.
 
-```js
-var config = {
-  // ...
-  resolve: {
-    extensions: ['', '.js', '.json']
-  }
-  // ...
-}
+##Nastavení Webpacku (produkční režim)
+
+Pro produkční režim nepotřebujeme server či hot reloading, jelikož se build proces volá jednorázově příkazem
+
+```
+npm run build
 ```
 
-Nemusíme pak psát `import 'foo.json'`, ale stačí `import 'foo'`.
+Ten nedělá nic jiného než to, že zavolá webpack a předá mu produkční verzi konfigurace `config.prod.babel.js`. Ten je strukturou velmi podobný tomu vývojovému:
 
-Celý `makeconfig.js` včetně úvodních importů vypadá takto:
+```
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import path from 'path';
+import webpack from 'webpack';
+import { HOT_RELOAD_PORT, SRC_DIR, BUILD_DIR } from './constants';
 
-```js
-'use strict';
-
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var NotifyPlugin = require('./notifyplugin');
-var path = require('path');
-var webpack = require('webpack');
-
-var lessLoaders = 'css-loader!autoprefixer-loader?browsers=last 2 version!less-loader';
-
-module.exports = function(isDevelopment) {
-
-  var config = {
-    cache: isDevelopment,
-    debug: isDevelopment,
-    devtool: isDevelopment ? 'eval-source-map' : '',
-    entry: isDevelopment ?
-      [
-        'webpack-dev-server/client?http://localhost:8888',
-        'webpack/hot/only-dev-server',
-        './src/client/index.js'
-      ] : [
-        './src/client/index.js'
-      ],
-    module: {
-      loaders: [{
-        loader: 'url-loader?limit=8192',
-        test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg)$/
-      }, {
-        loaders: isDevelopment ? [
-          'react-hot', 'babel-loader'
-        ] : [
-          'babel-loader'
-        ],
-        exclude: /node_modules/,
-        test: /\.js$/
+export default {
+  cache: false,
+  debug: false,
+  entry: { app: [path.join(SRC_DIR, 'client/index.js')] },
+  module: {
+    loaders: [{
+      loader: 'url-loader?limit=10000',
+      test: /\.(gif|jpg|png|woff|woff2|eot|ttf|svg|wav)$/,
+    }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel',
+      query: {
+        plugins: ['transform-runtime'],
+        presets: ['es2015', 'react'],
       },
-      {
-        loader: isDevelopment ?
-          'style-loader!' + lessLoaders
-          : ExtractTextPlugin.extract('style-loader', lessLoaders),
-        test: /\.(less)$/
-      }]
-    },
-    output: isDevelopment ? {
-      path: path.join(__dirname, '/build/'),
-      filename: 'app.js',
-      publicPath: 'http://localhost:8888/build/'
-    } : {
-      path: 'build/',
-      filename: 'app.js',
-      publicPath: 'build/'
-    },
-    plugins: (function() {
-      var plugins = [
-        new webpack.DefinePlugin({
-          'process.env.NODE_ENV':
-            JSON.stringify(isDevelopment ? 'development' : 'production')
-        })
-      ];
-      if (isDevelopment)
-        plugins.push(
-          NotifyPlugin,
-          new webpack.HotModuleReplacementPlugin(),
-          new webpack.NoErrorsPlugin()
-        );
-      else
-        plugins.push(
-          new ExtractTextPlugin('app.css', {allChunks: true}),
-          new webpack.optimize.DedupePlugin(),
-          new webpack.optimize.OccurenceOrderPlugin(),
-          new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}})
-        );
-      return plugins;
-    })(),
-    resolve: {
-      extensions: ['', '.js', '.json']
-    }
-  };
-  return config;
-
+    }, {
+      test: /\.less$/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader'),
+    }],
+  },
+  output: {
+    path: BUILD_DIR,
+    publicPath: '/build/',
+    filename: '[name]-[hash].js',
+    chunkFilename: '[name]-[chunkhash].js',
+  },
+  plugins: [
+    new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
+    new ExtractTextPlugin('app-[hash].css', { allChunks: true }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+  ],
+  resolve: {
+    extensions: ['', '.js', '.json'],
+    modulesDirectories: ['src', 'node_modules'],
+  },
 };
 ```
 
-**Už jsme skoro u cíle**. Zbývá si ukázat, co se skrývá v `build.js`:
-
-```js
-'use strict';
-
-var webpack = require('webpack');
-var gutil = require('gulp-util');
-
-module.exports = function(webpackConfig) {
-  return function(callback) {
-    webpack(webpackConfig, function(fatalError, stats) {
-      var jsonStats = stats.toJson();
-      var buildError = fatalError || jsonStats.errors[0] || jsonStats.warnings[0];
-
-      if (buildError)
-        throw new gutil.PluginError('webpack', buildError);
-
-      gutil.log('[webpack]', stats.toString({
-        colors: true,
-        version: false,
-        hash: false,
-        timings: false,
-        chunks: false,
-        chunkModules: false
-      }));
-
-      callback();
-    });
-  };
-};
-```
-
-**Kód výše nám spustí webpack v produkčním režimu**, odchytí a vypíše možné chyby. V případě úspěchu nám do pěkné tabulky vypíše, co se vygenerovalo, kam a jakou to má velikost.
-
-Soubor `devserver.js` je dost podobný:
-
-```js
-'use strict';
-
-var gutil = require('gulp-util');
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-
-module.exports = function(webpackConfig) {
-  return function(callback) {
-    new WebpackDevServer(webpack(webpackConfig), {
-      contentBase: 'http://localhost:8888',
-      hot: true,
-      publicPath: webpackConfig.output.publicPath,
-      quiet: false,
-      noInfo: true,
-      stats: {
-        assets: false,
-        colors: true,
-        version: false,
-        hash: false,
-        timings: false,
-        chunks: false,
-        chunkModules: false
-      }
-    }).listen(8888, '0.0.0.0', function(err) {
-      if (err)
-        throw new gutil.PluginError('webpack-dev-server', err);
-      gutil.log('[webpack-dev-server]', 'localhost:8888/build/client.js');
-      callback();
-    });
-  };
-};
-```
-
-**Spustí nám webpack ve vývojovém režimu**. Avšak tentokrát je obalen webpack-dev-serverem, což je samostatný node.js server, který se postará o aktualizaci změn (assets během vývoje stahujeme z něj). Musíme jen specifikovat na jaké adrese a portu bude běžet a pak také ignorovat výpisy, kterými jinak mohutně spamuje terminál. `gutil.PluginError` nám pak odchytí chyby během kompilace a vypíše je do terminálu.
+Nemusíme řešit ani inkrementální cacheování či sourcemapy. Loadery jsou totožné. Výstup uložíme do adresáře build. V produkčním módu musíme specifikovat **kam uložit poslepované CSS styly** pomocí `ExtractTextPlugin`. Následně použijeme `UglifyJsPlugin`. Ten významně minimalizuje JavaScriptový kód a provede další optimalizace (trvá to). `webpack.optimize.DedupePlugin` a `OccurenceOrderPlugin` jsou další optimalizace webpacku, které zmenší výsledný bundle.
 
 ##Celý dev-stack
 
-**A to je vše!** Celý dev stack najdete v [repozitáři této stránky](https://github.com/tajo/javascript) v adresáři `/examples`. Z terminálu se k funkčnímu stavu můžete dopracovat touto sadou příkazů (předpokládá se, že máte nainstalovaný node a npm):
+**A to je prakticky vše!**. V souborech `.babelrc` a `.eslintrc` už zbývá nastavit pár základních věcí pro babel a ESLint (mrkněte do zdrojáků). Celý dev stack najdete v [samostatném repozitáři na GitHubu](https://github.com/tajo/devstack). Z terminálu se k funkčnímu stavu můžete dopracovat touto sadou příkazů (předpokládá se, že máte nainstalovaný node a npm):
 
 ```
-git clone git@github.com:tajo/javascript.git
-cd javascript/examples/dev-stack
+git clone git@github.com:tajo/devstack.git
+cd devstack
 npm install
-npm install -g gulp
-gulp
+npm start
 ```
 
 Po otevření prohlížeče na adrese `http://localhost:8000` byste měli vidět to co je na úvodním gifu. Taktéž by měl fungovat hot-reload. Otevřte si konzoli. Ne vždy hot-reload funguje (u změn mimo React komponenty). **V konzoli vám pak webpack napíše, že máte provést ruční reload stránky. Proč ho neděláme automaticky? Protože je to otravné.** V praxi se pak stává, že si nechtíc něco uložíte, udělá se refresh a ztratí se vám stav. Prozkoumejte také tab `Elements` a mrkněte na to, jak vypadá výsledný DOM ve vývojovém a produkčním režimu.
 
 ##Závěrem
 
-**Postavili jsme si jednoduchý, ale moderní JS dev-stack**, který splňuje všechna očekávání vytyčená v úvodu. Nabízí nám pohodlný vývojový režim s hot-reloadem a bohatými výpisy (včetně source-map), které nám značně usnadní vývoj. V produkčním režimu nám pak webpack vytvoří maximálně optimalizovaný výstupní bundle s našimi skripty, styly a obrázky. Serverovou část naší aplikace jsme vyřešili v node.js. Základní HTML stránku si lze ale stejně dobře naservírovat i jakoukoliv jinou technologií, třeba Apachem s PHP. **Příště si představíme React a konečně si něco naprogramujeme.**
+**Postavili jsme si jednoduchý, ale moderní JS devstack**, který splňuje všechna očekávání vytyčená v úvodu. Nabízí nám pohodlný vývojový režim s hot-reloadem a bohatými výpisy (včetně source-map), které nám značně usnadní vývoj. V produkčním režimu nám pak webpack vytvoří maximálně optimalizovaný výstupní bundle s našimi skripty, styly a obrázky. Serverovou část naší aplikace jsme vyřešili v node.js. Základní HTML stránku si lze ale stejně dobře naservírovat i jakoukoliv jinou technologií, třeba Apachem s PHP. **Příště si představíme React a konečně si něco naprogramujeme.**
