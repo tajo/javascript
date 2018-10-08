@@ -152,6 +152,6 @@ export default class Counter extends React.Component {
 
 ##Závěrem
 
-**Představili jsme si React, jeho krátkou historii a související projekty**. Jedním ze strašáků "programování v prohlížeči" je DOM, často chybně a neférově zaměňován s JavaScriptem. React nám mj. umožňuje téměř kompletní abstrakci od DOMu. Strukturu jednotlivých komponent zapisujeme (deklarujeme) skládáním React funkcí, kterým následně dodáváme data a tím pro nás práce končí. React toho nabízí samozřejmě daleko více. Nakousli jsme třeba i systém eventů. **S Reactem je to tak trochu jako dobrým čajem nebo kafem**. Zpočátku vám bude připadat divný a musíte se k němu postupně "propít". Až poté se stane nepostradatelnou součástí vašeho programátorského dne.
+**Představili jsme si React, jeho krátkou historii a související projekty**. Jedním ze strašáků "programování v prohlížeči" je DOM, často chybně a neférově zaměňován s JavaScriptem. React nám mj. umožňuje téměř kompletní abstrakci od DOMu. Strukturu jednotlivých komponent zapisujeme (deklarujeme) skládáním React funkcí, kterým následně dodáváme data a tím pro nás práce končí. React toho nabízí samozřejmě daleko více. Nakousli jsme třeba i systém eventů. **S Reactem je to tak trochu jako s dobrým čajem nebo kafem**. Zpočátku vám bude připadat divný a musíte se k němu postupně "propít". Až poté se stane nepostradatelnou součástí vašeho programátorského dne.
 
 **Příště si ukážeme, co jsou to `this.props` a jak se liší od `this.state`**. Také si více povíme o životním cyklu komponenty a jejích dalších metodách.
